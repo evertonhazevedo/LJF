@@ -26,13 +26,13 @@ const tabelaMovimentacao = db.define('movimentacao', {
 
   dt_saida: {
     type: Sequelize.DATEONLY,
-    allowNull: false
+    allowNull: true
   },
 
   horario_saida: {
     type: Sequelize.TIME,
-    allowNull: false
-  },
+    allowNull: true
+  }
 
 }, { freezeTableName: true });
 

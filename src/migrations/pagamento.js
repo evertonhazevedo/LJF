@@ -19,14 +19,14 @@ const tabelaPagamento = db.define('pagamento', {
   },
 
   valor: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.DECIMAL,
     allowNull: false
   },
 
   dt_pagamento: {
     type: Sequelize.DATE,
     allowNull: false
-  },
+  }
 
 }, { freezeTableName: true });
 

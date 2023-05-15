@@ -7,16 +7,16 @@ const tabelaOrdemServico = require('./ordemServico');
 const tabelaFila = db.define('fila', {
 
   cd_fila: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
 
   posicao: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false
-  },
+  }
 
 }, { freezeTableName: true });
 

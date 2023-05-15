@@ -16,7 +16,7 @@ const tabelaBaia = db.define('baia', {
   status: {
     type: Sequelize.STRING,
     allowNull: false
-  },
+  }
 
 }, { freezeTableName: true });
 

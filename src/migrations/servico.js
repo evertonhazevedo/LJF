@@ -18,9 +18,9 @@ const tabelaServico = db.define('servico', {
   },
 
   valor: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.DECIMAL,
     allowNull: false
-  },
+  }
 
 }, { freezeTableName: true });
 
