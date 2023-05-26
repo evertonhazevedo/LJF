@@ -1,0 +1,40 @@
+.row{
+    margin: 0;
+}
+
+.col-6 {
+    min-height: 100vh;
+}
+
+.area_login {
+    padding: 150px 150px 0px 150px;
+}
+
+.login_logo {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login_titulo {
+    font-size: 2em;
+    text-align: center;
+}
+
+form#login {
+    width: 100%;
+    font-size: 1.1em;
+}
+
+#link_cadastro {
+    font-size: 1em;
+
+}
+
+.wallpaper {
+    background-image: url("../img/background-carro.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;    
+    background-color: blue;
+    
+}
