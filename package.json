@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/evertonhazevedo/LJF#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.1",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.3.2",
     "sequelize": "^6.31.1"
   },
