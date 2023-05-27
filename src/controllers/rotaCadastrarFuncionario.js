@@ -18,7 +18,8 @@ async function cadastrarFuncionario(req, res) {
   if (funcionario != null) {
     return res.status(400).json({
       success: false,
-      mensagem: 'usuario nao cadastrado'
+      codigo: 01,
+      mensagem: 'usuario já cadastrado'
     });
 
   } else {
@@ -27,7 +28,7 @@ async function cadastrarFuncionario(req, res) {
     await tabelaUsuario.create({
       nome: dados.nome,
       sobrenome: dados.sobrenome,
-      email: dados.sobrenome,
+      email: dados.email,
       nm_usuario: dados.nm_usuario,
       senha: await bcrypt.hash(dados.senha, 8),
       cpf: dados.cpf
@@ -44,7 +45,9 @@ async function cadastrarFuncionario(req, res) {
     }).catch(async function (error) {
       return res.status(400).json({
         success: false,
+        codigo: 02,
         message: 'nao foi possivel cadastrar o usuario' + error.message
+      
       });
     });
   }
