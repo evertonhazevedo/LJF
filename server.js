@@ -29,7 +29,7 @@ router.get('/', function (req, res) {
 
 app.use('/', router);
 
-///app.use(rotas);
+app.use(rotas);
 
 app.use(express.json());
 
