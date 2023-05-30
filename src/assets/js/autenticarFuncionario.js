@@ -1,37 +1,26 @@
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1500,
+  timerProgressBar: true
+});
+
 document.getElementById('btnLogin')
   .addEventListener('click', function () {
 
     let nm_usuario = document.getElementById('inputUsuario').value;
     let senha = document.getElementById('inputSenha').value;
-    let campoNmUsuario = document.getElementById('inputUsuario');
-    let campoSenha = document.getElementById('inputSenha');
-    let campo = document.getElementById('campo-erro');
-    let erro = document.querySelector(".alert");
 
-    // removendo o elemento da tela sempre que tentar submeter o formulário
-    erro.classList.add("d-none");
-    $('.is-invalid').removeClass('is-invalid');
+    if (validarCampos('input')) {
 
-    //Validando os campos do formulário de cadastro
-
-    //valida o campo email
-    if (campoNmUsuario.value == "") {
-      erro.classList.remove("d-none");
-      campo.innerHTML = "usuário" // nome do campo que não foi preenchido!
-      campoNmUsuario.focus();
-      campoNmUsuario.classList.add("is-invalid");
-
-    }
-
-    //valida o campo senha
-    else if (campoSenha.value == "") {
-      erro.classList.remove("d-none");
-      campo.innerHTML = "senha" // nome do campo que não foi preenchido!
-      campoSenha.focus();
-      campoSenha.classList.add("is-invalid");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Preencha todos os campos!'
+      })
 
     } else {
-
 
       const options = { method: 'GET' };
 
@@ -40,14 +29,6 @@ document.getElementById('btnLogin')
         .then(async response => {
 
           if (response.success == true) {
-
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 1500,
-              timerProgressBar: true
-            })
 
             await Toast.fire({
               icon: 'success',
