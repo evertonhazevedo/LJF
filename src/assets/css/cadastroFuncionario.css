@@ -1,7 +1,26 @@
+.row{
+    margin: 0;
+}
+
+.col-6 {
+    min-height: 100vh;
+}
+
 .cadastro_funcionario {
     min-height: 100vh;
 }
 
 #link_login {
     text-align: justify;
+}
+
+.wallpaper {
+    background-image: url("../img/background-carro-2.jpg");
+    -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 2%);
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 2%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;    
+    background-color: blue;
+    
 }

@@ -32,9 +32,11 @@ form#login {
 
 .wallpaper {
     background-image: url("../img/background-carro.jpg");
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 2%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 2%);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;    
+    background-position: center;
     background-color: blue;
     
 }
