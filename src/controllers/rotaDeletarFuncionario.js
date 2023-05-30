@@ -1,6 +1,5 @@
 // importacao da tabela usuario
 const tabelaUsuario = require("../migrations/usuario");
-const bcrypt = require('bcrypt');
 
 //Criando funcao para deletar funcionario
 async function deletarFuncionario(req, res) {
@@ -26,13 +25,13 @@ async function deletarFuncionario(req, res) {
 
     //deletando funcionario na tabela usuario
     await tabelaUsuario.destroy({
-      cpf: dados.cpf
-
+      where: {
+        cpf: dados.cpf
+      }
       //usuario deletado com sucesso
-    }).then(async function (funcionario) {
+    }).then(async function () {
       return res.status(200).json({
         success: true,
-        funcionario: funcionario,
         mensagem: 'usuario deletado'
       });
 

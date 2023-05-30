@@ -25,7 +25,7 @@ document.getElementById('btnDeletar')
           })
           await Toast.fire({
             icon: 'success',
-            title: 'deletado com sucesso'
+            title: 'Deletado com sucesso'
           })
           window.location.href = 'mapaGeral.html';
 
