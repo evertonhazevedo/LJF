@@ -18,26 +18,31 @@
             <div class="col-6 col-lg-6 col-xl-6 col-sm-12">
                 <div class="area_login">
                     <img src="/src/assets/img/LJF-LOGO.png" class="login_logo" alt="Lava Jato FICR Logo">
-   
-                <form id="login">
-                 <label for="inputUsuario" class="form-label">Usuário</label>
-                <input type="text" id="inputUsuario" class="form-control mb-3">
-    
-                <label for="inputSenha" class="form-label">Senha</label>
-                <input type="password" id="inputSenha" class="form-control mb-3">
-                <button type="submit" id="btnLogin" class="btn btn-primary mb-3">Login</button>
-                </form>
-                <a id="link_cadastro" href="/src/pages/cadastroFuncionario.html">Não tem conta? Cadastre-se</a>
+
+                    <form id="login">
+                        <label for="inputUsuario" class="form-label">Usuário</label>
+                        <input type="text" id="inputUsuario" class="form-control mb-3 input">
+
+                        <label for="inputSenha" class="form-label">Senha</label>
+                        <input type="password" id="inputSenha" class="form-control mb-3 input">
+                        <button type="button" id="btnLogin" class="btn btn-primary mb-3">Login</button>
+                    </form>
+                    <a id="link_cadastro" href="/src/pages/cadastroFuncionario.html">Não tem conta? Cadastre-se</a>
                 </div>
             </div>
-    
+
             <div class="col-6 col-lg-6 col-xl-6 col-sm-12 wallpaper">
             </div>
         </div>
-       
+
 
     </section>
-                
+
+    <!--Importacao javascript-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/Javascript" src="./src/assets/js/autenticarFuncionario.js"></script>
+    <script type="text/Javascript" src="./src/assets/js/validarCampos.js"></script>
+
 </body>
 
 </html>
