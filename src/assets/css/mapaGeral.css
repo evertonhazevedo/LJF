@@ -1,0 +1,49 @@
+.container {
+    margin: 50px;
+}
+
+.card p {
+    margin-bottom: 0;
+}
+
+.card-title {
+    color: #0C286E;
+}
+
+.card{
+    border: none;
+   
+}
+.card-body {
+    background-color: var(--cor-cinza);
+    padding: 10px;
+    border-radius: 8px 8px 0px 0px;
+    height: 142px;
+}
+
+.card_footer{
+   color: white;
+   border-radius: 0px 0px 8px 8px;
+}
+
+.card_footer[data-status='ocupada'] {
+    background-color: var(--cor-vermelho);
+}
+
+.card_footer[data-status='livre'] {
+    background-color: var(--cor-verde);
+}
+
+#btnProximo {
+    padding: 25px 50px;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-right: 10px;
+    height: 91px;
+}
+
+#btnCheckout {
+    padding: 0px 25px;
+    font-size: 1em;
+    height: 91px;
+}

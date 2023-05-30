@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     font-family: 'Work Sans', sans-serif;
@@ -7,6 +7,9 @@
 :root {
     --cor-principal: #1B56ED;
     --cor-botao: var(--cor-principal);
+    --cor-vermelho: #FF0000;
+    --cor-verde: #1DB505;
+    --cor-cinza: #D9D9D9;
 }
 
 body {
@@ -30,6 +33,7 @@ body {
     padding: 0.5rem;
     font-size: 1.1em;
     background-color: var(--cor-botao);
+    white-space: nowrap;
 }
 
 .form-control {
