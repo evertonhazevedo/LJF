@@ -34,6 +34,24 @@
     background-color: var(--cor-verde);
 }
 
+.img_veiculo {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+}
+
+.img_veiculo[data-veiculo='moto'] {
+    background-image: url('../icon/moto-icon.svg');
+    min-width: 70px;
+    min-height: 100px;
+}
+
+.img_veiculo[data-veiculo='carro'] {
+    background-image: url('../icon/carro-icon.svg');
+    min-width: 100px;
+    min-height: 100px;
+}
+
 #btnProximo {
     padding: 25px 50px;
     font-size: 1.5em;

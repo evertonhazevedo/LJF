@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputCpf" class="form-label">CPF</label>
-                                    <input type="text" class="form-control input" id="inputCpf" required>
+                                    <input type="text" class="form-control input" id="inputCpf" maxlength="14" onkeypress="mascaraCpf(this)" required>
                                 </div>
                                
                                 <div class="col-md-6">
@@ -80,6 +80,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/Javascript" src="../assets/js/cadastrarFuncionario.js"></script>
 <script type="text/Javascript" src="../assets/js/validarCampos.js"></script>
+<script type="text/Javascript" src="../assets/js/mascaras.js"></script>
 
 
 </html>
