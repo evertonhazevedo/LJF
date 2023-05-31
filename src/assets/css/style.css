@@ -44,6 +44,10 @@ body {
     font-weight: 500;
 }
 
+.form-control:focus{
+    box-shadow: 0 0 0 0.1rem rgba(13,110,253,.25);
+}
+
 form {
     font-size: 1.1em;
     
@@ -95,4 +99,8 @@ a {
 .menu_principal .data_operador p{
     margin-bottom: 0;
     color: var(--cor-principal);
+}
+
+.ljf_logo {
+    width: 100%;
 }
