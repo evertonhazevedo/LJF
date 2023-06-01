@@ -34,7 +34,7 @@ async function cadastrarFuncionario(req, res) {
       cpf: dados.cpf
 
       //usuario cadastrado com sucesso
-    }).then(async function (funcionario) {
+    }).then(function (funcionario) {
       return res.status(200).json({
         success: true,
         funcionario: funcionario,
@@ -42,7 +42,7 @@ async function cadastrarFuncionario(req, res) {
       });
 
       //erro ao cadastrar
-    }).catch(async function (error) {
+    }).catch(function (error) {
       return res.status(400).json({
         success: false,
         codigo: 02,
