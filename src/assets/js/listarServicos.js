@@ -60,10 +60,7 @@ fetch(baseUrl + '/listar-servicos', options)
       for (let j = 0, linhaBody = ''; j < servicos.length; j++) {
 
         linhaBody = criarTag("tr");
-        if (j % 2 != 0) {
-          linhaBody.setAttribute("class", "table-active");
-        }
-
+    
         let checkboxServico = document.createElement('input');
         checkboxServico.type = 'checkbox';
         checkboxServico.className = 'form-check-input';
@@ -73,6 +70,7 @@ fetch(baseUrl + '/listar-servicos', options)
           cel = criarCelula("td", servicos[j][i]);
           linhaBody.appendChild(cel);
           checkboxServico.setAttribute('value', servicos[j][0]);
+          checkboxServico.setAttribute('id', 'chk' + servicos[j][0]);
         }
 
 
@@ -86,7 +84,6 @@ fetch(baseUrl + '/listar-servicos', options)
       }
 
       // Atribuindo as tags da tabela na tag <table>
-      tabela.classList.add('table');
       tabela.appendChild(thead);
       tabela.appendChild(tbody);
 

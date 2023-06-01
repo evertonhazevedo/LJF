@@ -9,7 +9,7 @@ function somarTotalTempoValor(checkbox, valor, tempo) {
 
     valorTotal = valorTotal + parseFloat(valor);
 
-    campoValortotal.innerHTML = valorTotal.toFixed(2) + 'R$';
+    campoValortotal.innerHTML = 'R$ ' +  valorTotal.toFixed(2);
 
     var array1 = tempo.split(':');
 
@@ -50,7 +50,7 @@ function somarTotalTempoValor(checkbox, valor, tempo) {
 
     valorTotal = valorTotal - parseFloat(valor);
 
-    campoValortotal.innerHTML = valorTotal.toFixed(2) + 'R$';
+    campoValortotal.innerHTML = 'R$ ' + valorTotal.toFixed(2);
 
     var array1 = tempo.split(':');
 
