@@ -6,6 +6,8 @@ const Toast = Swal.mixin({
   timerProgressBar: true
 });
 
+var baseUrl = localStorage.getItem('baseUrl');
+
 document.getElementById('btnLogin')
   .addEventListener('click', function () {
 
@@ -24,7 +26,7 @@ document.getElementById('btnLogin')
 
       const options = { method: 'GET' };
 
-      fetch('http://localhost:5500/autenticar-funcionario/' + nm_usuario + '/' + senha, options)
+      fetch(baseUrl + '/autenticar-funcionario/' + nm_usuario + '/' + senha, options)
         .then(response => response.json())
         .then(async response => {
 

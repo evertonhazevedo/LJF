@@ -8,6 +8,7 @@ const { eAdmin } = require('../../middlewares/auth');
 const cadastrarFuncionario = require('../controllers/rotaCadastrarFuncionario');
 const deletarFuncionario = require('../controllers/rotaDeletarFuncionario');
 const autenticarFuncionario = require('../controllers/rotaAutenticarFuncionario');
+const listarServicos = require('../controllers/rotaListarServicos');
 
 //rota que chama a funcao cadastrarFuncionario
 router.post('/cadastrar-funcionario', cadastrarFuncionario);
@@ -17,6 +18,9 @@ router.delete('/deletar-funcionario', deletarFuncionario);
 
 //rota que chama a funcao autenticarFuncionario
 router.get('/autenticar-funcionario/:nm_usuario/:senha', autenticarFuncionario);
+
+//rota que chama a funcao listarServicos
+router.get('/listar-servicos', listarServicos);
 
 
 module.exports = router;

@@ -63,5 +63,5 @@ tabelaVeiculo.hasMany(tabelaOrdemServico, {
 
 // Método para verificar se tabela já existe. Caso nao, irá criar tabela.
 
-tabelaOrdemServico.sync({ alter: true });
+tabelaOrdemServico.sync();
 module.exports = tabelaOrdemServico;

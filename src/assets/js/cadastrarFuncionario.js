@@ -1,3 +1,5 @@
+var baseUrl = localStorage.getItem('baseUrl');
+
 const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -39,7 +41,7 @@ document.getElementById('btnCadastrar')
         })
       };
 
-      fetch('http://localhost:5500/cadastrar-funcionario', options)
+      fetch(baseUrl + '/cadastrar-funcionario', options)
         .then(response => response.json())
         .then(async response => {
           console.log(response);

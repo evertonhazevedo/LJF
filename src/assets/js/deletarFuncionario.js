@@ -1,3 +1,5 @@
+var baseUrl = localStorage.getItem('baseUrl');
+
 document.getElementById('btnDeletar')
   .addEventListener('click', function () {
 
@@ -11,7 +13,7 @@ document.getElementById('btnDeletar')
       })
     };
 
-    fetch('http://localhost:5500/deletar-funcionario', options)
+    fetch(baseUrl + '/deletar-funcionario', options)
       .then(response => response.json())
       .then(async response => {
         console.log(response);
