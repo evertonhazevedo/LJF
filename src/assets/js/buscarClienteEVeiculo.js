@@ -7,8 +7,6 @@ function preencherDadosVeiculo(cliente) {
   document.getElementById('inputTelefone').value = cliente.telefone;
   document.getElementById('inputPesquisar').value = '';
 
-  localStorage.setItem('idCliente', cliente.cd_cliente);
-
 }
 
 //Função responsavel por mostrar o erro ocorrido
