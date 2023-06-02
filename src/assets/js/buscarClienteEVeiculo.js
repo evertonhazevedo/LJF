@@ -7,6 +7,7 @@ function preencherDadosVeiculo(cliente) {
   document.getElementById('inputTelefone').value = cliente.telefone;
   document.getElementById('inputPesquisar').value = '';
 
+  localStorage.setItem('cd_cliente', cliente.cd_cliente);
 }
 
 //Função responsavel por mostrar o erro ocorrido
@@ -63,7 +64,7 @@ document.getElementById('inputPesquisar')
             selectPlaca.length = 0;
 
             let optionPadrao = document.createElement('option');
-            optionPadrao.innerHTML = 'Escolha uma placa';
+            optionPadrao.innerHTML = 'Escolha um veículo';
             selectPlaca.appendChild(optionPadrao);
 
             response.veiculo.forEach(element => {

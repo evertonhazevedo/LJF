@@ -11,9 +11,13 @@ const autenticarFuncionario = require('../controllers/rotaAutenticarFuncionario'
 const listarServicos = require('../controllers/rotaListarServicos');
 const buscarInfoVeiculo = require('../controllers/rotaBuscarInfoVeiculo');
 const buscarClienteEVeiculo = require('../controllers/rotaBuscarClienteEVeiculo');
+const gerarOS = require('../controllers/rotaGerarOS');
 
 //rota que chama a funcao cadastrarFuncionario
 router.post('/cadastrar-funcionario', cadastrarFuncionario);
+
+//rota que chama a funcao gerarOS
+router.post('/gerar-os/:cliente/:veiculo', gerarOS);
 
 //rota que chama a funcao deletarFuncionario
 router.delete('/deletar-funcionario', deletarFuncionario);
@@ -29,6 +33,5 @@ router.get('/buscar-info-veiculo/:placa', buscarInfoVeiculo);
 
 //rota que chama a funcao buscarClienteEVeiculo
 router.get('/buscar-cliente-e-veiculo/:cpf', buscarClienteEVeiculo);
-
 
 module.exports = router;

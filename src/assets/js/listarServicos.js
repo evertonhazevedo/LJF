@@ -24,7 +24,6 @@ fetch(baseUrl + '/listar-servicos', options)
       for (let i = 0; i < response.servicos.length; i++) {
 
         servicos[i] = [response.servicos[i].nm_servico, response.servicos[i].valor, response.servicos[i].tempo]
-        console.log(servicos[i]);
       }
 
       // Função para criar uma Tag Ex: <tr>, <td>

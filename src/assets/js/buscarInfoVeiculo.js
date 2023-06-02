@@ -14,6 +14,8 @@ function buscarInfoVeiculo(placa) {
         document.getElementById('inputMarca').value = response.infoVeiculo.marca;
         document.getElementById('inputModelo').value = response.infoVeiculo.modelo;
 
+        localStorage.setItem('cd_veiculo', response.infoVeiculo.cd_veiculo);
+
       }
 
     })
