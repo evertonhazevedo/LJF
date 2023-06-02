@@ -83,7 +83,7 @@ a {
 .menu_principal li {
     background-color: var(--cor-principal);
     margin: 0px 1px;
-    width: 100px;
+    width: 122px;
     height: 80px;
     text-align: center;
     font-size: 0.8em;
@@ -120,24 +120,24 @@ a {
 
 /* Modal Cadastro de Clientes */
 
-#mdlCadCliente .modal-body {
+#mdlClienteVeiculo .modal-body {
     padding: 0 20px;
 }
 
-#mdlCadCliente .modal-dialog {
+#mdlClienteVeiculo .modal-dialog {
     max-width: 700px;
 
 }
 
-#mdlCadCliente .modal-content {
+#mdlClienteVeiculo .modal-content {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-#mdlCadCliente .titulo_padrao {
+#mdlClienteVeiculo .titulo_padrao {
     font-size: 1em;
 }
 
-#mdlCadCliente .modal-footer .btn {
+#mdlClienteVeiculo .modal-footer .btn {
     width: 100px;
     height: 40px;
     padding: 0.5em;
