@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../models/db');
 const tabelaCliente = require('./cliente');
 const tabelaVeiculo = require('./veiculos');
+const tabelaMovimentacao = require('./movimentacao');
 
 //criando tabela Ordem de Servicos
 
@@ -58,6 +59,23 @@ tabelaOrdemServico.belongsTo(tabelaVeiculo, {
 tabelaVeiculo.hasMany(tabelaOrdemServico, {
   foreignKey: 'cd_veiculo'
 });
+
+// Relacionamento 1-1:
+
+tabelaOrdemServico.belongsTo(tabelaMovimentacao, {
+  constraint: true,
+  foreignKey: 'cd_movimentacao',
+  allowNull: false
+
+});
+
+// relacionamento 1-1:
+
+tabelaMovimentacao.belongsTo(tabelaOrdemServico, {
+  foreignKey: 'cd_movimentacao'
+});
+
+
 
 // Método para verificar se tabela já existe. Caso nao, irá criar tabela.
 
