@@ -24,7 +24,7 @@ document.getElementById('btnGerarOs')
         title: 'Oops...',
         text: 'Você deve escolher um veículo!'
       })
-      
+
     } else if (checkbox.length <= 0) {
 
       await Swal.fire({
