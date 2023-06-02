@@ -3,14 +3,20 @@ let modal = document.getElementById('mdlCadCliente');
 modal.innerHTML = `<div class="modal-dialog">
 <div class="modal-content">
   <div class="modal-header">
-    <h1 class="modal-title titulo_padrao fs-2" id="modalTitulo">Cadastro de Cliente</h1>
+    <h1 class="modal-title titulo_padrao fs-2" id="modalTitulo">Gerenciar Cliente e Veículos</h1>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
   </div>
-  <div class="modal-body">
-    <!--Formulário de Cadastro de Cliente -->
+  <div class="modal-body mt-3">
+    <!--Formulário de Gerenciamento de Cliente e Veículo -->
     <form id="formCadCliente" class="row align-items-center g-3">
 
-      <div class="col-md-6 col-sm-12">
+    <div class="col-md-12 col-sm-12">
+    <div id="">
+    <h4>Pesquisar Cliente</h4>
+    <input type="text" class="form-control mb-3" id="iptPesquisarCliente" maxlength="14" placeholder="Informe o CPF" onkeypress="mascaraCpf(this)">
+</div>
+      </div>
+       <div class="col-md-6 col-sm-12">
         <label for="iptNomeCli" class="form-label">Nome</label>
         <input type="text" class="form-control input" id="iptNomeCli">
       </div>
