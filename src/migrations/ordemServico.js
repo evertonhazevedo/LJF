@@ -75,8 +75,6 @@ tabelaMovimentacao.belongsTo(tabelaOrdemServico, {
   foreignKey: 'cd_movimentacao'
 });
 
-
-
 // Método para verificar se tabela já existe. Caso nao, irá criar tabela.
 
 tabelaOrdemServico.sync();

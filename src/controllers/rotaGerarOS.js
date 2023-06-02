@@ -8,65 +8,76 @@ async function gerarOS(req, res) {
 
   let body = req.body;
 
-  await tabelaOrdemServico.create({
+  await tabelaMovimentacao.create({
 
-    cd_cliente: req.params.cliente,
-    cd_veiculo: req.params.veiculo
+    // dt_entrada: ,
+    // horario_entrada: ,
+    cd_ordem_servico: ordemServico.cd_ordem_servico,
 
-  }).then(async function (ordemServico) {
+  }).then(async function (movimentacao) {
 
-    try {
+    await tabelaOrdemServico.create({
 
-      body.servico.forEach(async element => {
+      cd_cliente: req.params.cliente,
+      cd_veiculo: req.params.veiculo
 
-        const servico = await tabelaServico.findOne({
-          where: {
-            nm_servico: element
+    }).then(async function (ordemServico) {
+
+      try {
+
+        body.servico.forEach(async element => {
+
+          const servico = await tabelaServico.findOne({
+            where: {
+              nm_servico: element
+            }
+          })
+
+          if (servico != null) {
+
+            await tabelaServicoOS.create({
+
+              cd_ordem_servico: ordemServico.cd_ordem_servico,
+              cd_servico: servico.cd_servico
+
+            })
           }
         })
 
-        if (servico != null) {
+        return res.status(200).json({
+          success: true,
+          ordemServico: ordemServico,
+          message: 'OS gerada com sucesso'
+        });
 
-          await tabelaServicoOS.create({
+      } catch (error) {
 
-            cd_ordem_servico: ordemServico.cd_ordem_servico,
-            cd_servico: servico.cd_servico
+        return res.status(400).json({
+          success: false,
+          codigo: 03,
+          message: 'Nao foi possível inserir o registro na tabela servicoOS'
+        });
 
-          })
-        }
-      })
+      }
 
-      return res.status(200).json({
-        success: true,
-        ordemServico: ordemServico,
-        message: 'OS gerada com sucesso'
-      });
-      
-    } catch (error) {
+    }).catch(function (error) {
 
       return res.status(400).json({
         success: false,
         codigo: 02,
-        message: 'Nao foi possível inserir o registro na tabela servicoOS'
+        message: 'Nao foi possível inserir o registro na tabela ordemServico' + error.message
       });
 
-    }
-
-    // await tabelaMovimentacao.create({
-    //   dt_entrada: ,
-    //   horario_entrada: ,
-    //   cd_ordem_servico: ordemServico.cd_ordem_servico,
-    // })
+    });
 
   }).catch(function (error) {
-
     return res.status(400).json({
       success: false,
       codigo: 01,
-      message: 'Nao foi possível inserir o registro na tabela ordemServico' + error.message
+      message: 'Nao foi possível inserir o registro na tabela movimentação' + error.message
     });
+  })
 
-  });
 }
 
 module.exports = gerarOS;
