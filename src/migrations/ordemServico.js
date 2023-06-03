@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../models/db');
 const tabelaCliente = require('./cliente');
 const tabelaVeiculo = require('./veiculos');
+const tabelaBaia = require('./baia');
 const tabelaMovimentacao = require('./movimentacao');
 
 //criando tabela Ordem de Servicos
@@ -13,24 +14,19 @@ const tabelaOrdemServico = db.define('ordemServico', {
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
+  },
+  
+  valor_total: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+
+  previsao: {
+    type: Sequelize.TIME,
+    allowNull: false
   }
 
 }, { freezeTableName: true });
-
-// // Relacionamento 1-1 'cd_servico':
-
-// tabelaOrdemServico.belongsTo(tabelaServico, {
-//   constraint: true,
-//   foreignKey: 'cd_servico',
-//   allowNull: false
-
-// });
-
-// // relacionamento 1 - vários 'cd_servico':
-
-// tabelaServico.hasMany(tabelaOrdemServico, {
-//   foreignKey: 'cd_servico'
-// });
 
 // Relacionamento 1-1 'cd_cliente':
 
@@ -75,8 +71,23 @@ tabelaMovimentacao.belongsTo(tabelaOrdemServico, {
   foreignKey: 'cd_movimentacao'
 });
 
+// Relacionamento 1-1:
+
+tabelaOrdemServico.belongsTo(tabelaBaia, {
+  constraint: true,
+  foreignKey: 'cd_baia',
+  allowNull: false
+
+});
+
+// relacionamento 1 - vários:
+
+tabelaBaia.hasMany(tabelaOrdemServico, {
+  foreignKey: 'cd_baia'
+});
+
 // Método para verificar se tabela já existe. Caso nao, irá criar tabela.
 
-tabelaOrdemServico.sync();
+tabelaOrdemServico.sync({alter:true});
 
 module.exports = tabelaOrdemServico;

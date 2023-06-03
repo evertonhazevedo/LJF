@@ -8,6 +8,9 @@ document.getElementById('btnGerarOs')
     var checkbox = document.querySelectorAll('input:checked');
     var placa = document.getElementById("inputMarca").value;
     var nome = document.getElementById("inputNome").value;
+    var previsao = document.getElementById('previsaoTotal').innerHTML;
+
+    console.log('Previsao: ' + previsao);
 
     if (nome == "") {
 
