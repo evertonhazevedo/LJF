@@ -12,6 +12,7 @@
 
 .card{
     border: none;
+    max-width: 300px;
    
 }
 .card-body {
@@ -38,18 +39,17 @@
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
+    min-height: 50px;
 }
 
 .img_veiculo[data-veiculo='moto'] {
     background-image: url('../icon/moto-icon.svg');
-    min-width: 70px;
-    min-height: 100px;
+    max-width: 70px;
 }
 
 .img_veiculo[data-veiculo='carro'] {
     background-image: url('../icon/carro-icon.svg');
-    min-width: 100px;
-    min-height: 100px;
+    max-width: 150px;
 }
 
 #btnProximo {
