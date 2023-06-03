@@ -4,13 +4,21 @@ document.getElementById('btnGerarOs')
     // Dados para popular a tabela
     const servico = [];
 
+
     var baseUrl = localStorage.getItem('baseUrl');
     var checkbox = document.querySelectorAll('input:checked');
     var placa = document.getElementById("inputMarca").value;
     var nome = document.getElementById("inputNome").value;
     var previsao = document.getElementById('previsaoTotal').innerHTML;
 
-    console.log('Previsao: ' + previsao);
+
+    for (let i = 0; i < checkbox.length; i++) {
+
+      console.log('Previsao: ' + checkbox[i]);
+      
+    }
+
+
 
     if (nome == "") {
 

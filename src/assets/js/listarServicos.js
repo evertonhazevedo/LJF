@@ -72,9 +72,6 @@ fetch(baseUrl + '/listar-servicos', options)
           checkboxServico.setAttribute('id', 'chk' + servicos[j][0]);
         }
 
-
-       
-
         //Criando mais uma celula no final da linha e adicionando o Gerenciar Usuário
         let servico = linhaBody.insertCell();
         servico.appendChild(checkboxServico);
