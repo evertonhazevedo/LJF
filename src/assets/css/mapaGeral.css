@@ -27,6 +27,11 @@
    border-radius: 0px 0px 8px 8px;
 }
 
+#relogio-icon {
+    width: 20px;
+    margin-right: 5px;
+}
+
 .card_footer[data-status='ocupada'] {
     background-color: var(--cor-vermelho);
 }
