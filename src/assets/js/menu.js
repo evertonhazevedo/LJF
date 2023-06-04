@@ -127,6 +127,15 @@ menu.innerHTML = `<div class="container-fluid">
             </a>
         </li>
         <!-- Item do menu-->
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="" data-bs-toggle="modal" data-bs-target="#mdlCadastrarBaia">
+                <div>
+                    <img src="../assets/icon/cadastrar_baia_icon.svg" alt="Cadastrar Baia">
+                </div>
+                Cadastrar Baia
+            </a>
+        </li>
+        <!-- Item do menu-->
         <li class="nav-item" id="btnDeslogar">
             <a class="nav-link active" aria-current="page" href="#">
                 <div>

@@ -7,8 +7,10 @@ function somarTotalTempoValor(checkbox, valor, tempo) {
 
   if (checkbox.checked == true) {
 
+    //Contador do valor total convertido para float
     valorTotal = valorTotal + parseFloat(valor);
 
+    //Setando valor total da os
     campoValortotal.innerHTML = 'R$ ' +  valorTotal.toFixed(2);
 
     var array1 = tempo.split(':');
@@ -44,7 +46,6 @@ function somarTotalTempoValor(checkbox, valor, tempo) {
       campoPrevisaoTotal.innerHTML = '0' + hours + ' Horas';
 
     }
-
 
   } else {
 
@@ -85,8 +86,5 @@ function somarTotalTempoValor(checkbox, valor, tempo) {
       campoPrevisaoTotal.innerHTML = '0' + hours + ' Horas';
 
     }
-
-
   }
-
 }
