@@ -60,7 +60,7 @@ modal.innerHTML = `<div class="modal-dialog">
       </div>
 
       <div class="col-lg-3">
-        <button type="button" class="btn btn-primary btn-cadastrar">Cadastrar<img
+        <button type="button" class="btn btn-primary btn-cadastrar" id="btnCadastrarVei">Cadastrar<img
             src="../assets/icon/cadastrar-icon.svg"></button>
       </div>
 
@@ -104,8 +104,8 @@ modal.innerHTML = `<div class="modal-dialog">
     </form>
   </div>
   <div class="modal-footer justify-content-start">
-    <button type="button" class="btn btn-primary">Salvar</button>
-    <button type="button" class="btn btn-danger">Excluir</button>
+    <button type="button" class="btn btn-primary" id="btnSalvarCliVei">Salvar</button>
+    <button type="button" class="btn btn-danger" id="btnExcluirCli">Excluir</button>
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
   </div>
 </div>
