@@ -51,12 +51,13 @@
                                 <div class="col-5 d-flex flex-wrap align-content-between justify-content-center">
                                     <h5>OS: <label id="id_OS">1</label></h5>
                                     <div class="img_veiculo" data-veiculo="carro"></div>
-                                    <img id="relogio-icon" src="../assets/icon/relogio.svg" alt=""><p id="tempo">30 min</p>
+                                    <img id="relogio-icon" src="../assets/icon/relogio.svg" alt="">
+                                    <p id="tempo">30 min</p>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="card_footer text-center" data-status="ocupada">Ocupada</div>
+                        <div class="card_footer text-center" data-status="1">Ocupada</div>
                     </div>
                 </div>
                 <div class="col">
@@ -79,7 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card_footer text-center" data-status="livre">Livre</div>
+                        <div class="card_footer text-center" data-status="0">Livre</div>
                     </div>
                 </div>
                 <div class="col">
@@ -102,7 +103,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card_footer text-center" data-status="ocupada">Ocupada</div>
+                        <div class="card_footer text-center" data-status="1">Ocupada</div>
                     </div>
                 </div>
                 <div class="col">
@@ -125,7 +126,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card_footer text-center" data-status="ocupada">Ocupada</div>
+                        <div class="card_footer text-center" data-status="1">Ocupada</div>
                     </div>
                 </div>
                 <div class="col">
@@ -148,9 +149,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card_footer text-center" data-status="livre">Livre</div>
+                        <div class="card_footer text-center" data-status="0">Livre</div>
                     </div>
-                </div>     
+                </div>
             </div>
 
             <!--Filas-->
@@ -210,6 +211,12 @@
         <div class="modal fade" id="mdlClienteVeiculo" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
 
         </div>
+
+        <!-- Modal Cadastrar baia-->
+        <div class="modal fade" id="mdlCadastrarBaia" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+
+        </div>
+
     </section>
 
     <!--Importacao javascript-->
@@ -219,8 +226,9 @@
         crossorigin="anonymous"></script>
     <script src="../assets/js/menu.js"></script>
     <script src="../assets/js/mdlClienteVeiculo.js"></script>
+    <script src="../assets/js/mdlCadastrarBaia.js"></script>
     <script src="../assets/js/deslogarFuncionario.js"></script>
-    <script src="./src/assets/js/baseUrl.js"></script>
+    <script src="../assets/js/baseUrl.js"></script>
     <script src="../assets/js/mascaras.js"></script>
 
 </body>

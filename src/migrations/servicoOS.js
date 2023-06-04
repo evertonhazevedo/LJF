@@ -43,7 +43,7 @@ tabelaServico.hasMany(tabelaServicoOS, {
 
 // Método para verificar se tabela já existe. Caso nao, irá criar tabela.
 
-tabelaServicoOS.sync({alter:true});
+tabelaServicoOS.sync();
 
 module.exports = tabelaServicoOS;
 

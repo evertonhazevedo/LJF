@@ -17,7 +17,7 @@ const gerarOS = require('../controllers/rotaGerarOS');
 router.post('/cadastrar-funcionario', cadastrarFuncionario);
 
 //rota que chama a funcao gerarOS
-router.post('/gerar-os/:cliente/:veiculo', gerarOS);
+router.post('/gerar-os', gerarOS);
 
 //rota que chama a funcao deletarFuncionario
 router.delete('/deletar-funcionario', deletarFuncionario);

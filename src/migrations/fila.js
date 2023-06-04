@@ -14,7 +14,7 @@ const tabelaFila = db.define('fila', {
   },
 
   posicao: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false
   }
 

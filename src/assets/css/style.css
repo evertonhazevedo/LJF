@@ -13,7 +13,7 @@
 }
 
 .container {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 body {
@@ -83,7 +83,7 @@ a {
 .menu_principal li {
     background-color: var(--cor-principal);
     margin: 0px 1px;
-    width: 122px;
+    width: 130px;
     height: 80px;
     text-align: center;
     font-size: 0.8em;
@@ -118,7 +118,7 @@ a {
     width: 100%;
 }
 
-/* Modal Cadastro de Clientes */
+/* Modal Cadastro de Clientes e Veículos */
 
 #mdlClienteVeiculo .modal-body {
     padding: 0 20px;
@@ -144,7 +144,7 @@ a {
     
 }
 
-#formCadCliente{
+#formCadCliente, #formCadBaia{
     --bs-gutter-y: 0.5rem;
     
 }
@@ -163,7 +163,7 @@ a {
     width: 25px;
 }
 
-#iptPesquisarCliente{
+#iptPesquisarCliente, #iptQtdBaia{
     border-width: 0px 0px 2px 0px;
     border-radius: 0;
     font-size: 1.5em;
@@ -172,7 +172,32 @@ a {
     background-color: rgba(0, 0, 0, 0);
 }
 
-#iptPesquisarCliente:focus{
+#iptPesquisarCliente:focus, #iptQtdBaia:focus{
     box-shadow: none;
     width: 280px;
+}
+
+/* Modal Cadastro de Baias */
+#mdlCadastrarBaia .modal-body {
+    padding: 0 20px;
+}
+
+#mdlCadastrarBaia .modal-dialog {
+    max-width: 700px;
+
+}
+
+#mdlCadastrarBaia .modal-content {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#mdlCadastrarBaia .titulo_padrao {
+    font-size: 1em;
+}
+
+#mdlCadastrarBaia .modal-footer .btn {
+    width: 100px;
+    height: 40px;
+    padding: 0.5em;
+    
 }
