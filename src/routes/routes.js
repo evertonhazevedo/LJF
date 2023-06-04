@@ -28,7 +28,7 @@ router.post('/cadastrar-funcionario', cadastrarFuncionario);
 router.post('/cadastrar-veiculo', cadastrarVeiculo);
 
 //rota que chama a funcao gerarOS
-router.post('/gerar-os/:cliente/:veiculo', gerarOS);
+router.post('/gerar-os', gerarOS);
 
 //rota que chama a funcao deletarCliente
 router.delete('/deletar-cliente', deletarCliente);

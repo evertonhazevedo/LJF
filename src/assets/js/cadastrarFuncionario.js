@@ -26,7 +26,19 @@ document.getElementById('btnCadastrar')
         text: 'Preencha todos os campos!'
       })
 
-    } else {
+    } else if (!validarEmail(email)) {
+
+      let inputEmail = document.getElementById('inputEmail');
+
+      inputEmail.classList.add('is-invalid');
+
+      await Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Informe um Email válido!'
+      })
+
+    }else {
 
       const options = {
         method: 'POST',
@@ -73,3 +85,8 @@ document.getElementById('btnCadastrar')
         .catch(err => console.error(err));
     }
   });
+
+function validarEmail(email) {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}

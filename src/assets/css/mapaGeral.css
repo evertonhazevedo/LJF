@@ -10,11 +10,12 @@
     color: #0C286E;
 }
 
-.card{
+.card {
     border: none;
     max-width: 300px;
-   
+
 }
+
 .card-body {
     background-color: var(--cor-cinza);
     padding: 10px;
@@ -22,9 +23,9 @@
     height: 142px;
 }
 
-.card_footer{
-   color: white;
-   border-radius: 0px 0px 8px 8px;
+.card_footer {
+    color: white;
+    border-radius: 0px 0px 8px 8px;
 }
 
 #relogio-icon {
@@ -32,11 +33,13 @@
     margin-right: 5px;
 }
 
-.card_footer[data-status='ocupada'] {
+/* Baia ocupada */
+.card_footer[data-status='1'] {
     background-color: var(--cor-vermelho);
 }
 
-.card_footer[data-status='livre'] {
+/* Baia Livre */
+.card_footer[data-status='0'] {
     background-color: var(--cor-verde);
 }
 
