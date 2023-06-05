@@ -83,6 +83,10 @@ const getHours = () => {
     relogio.innerHTML = `${hour}:${minute}`
 }
 
+window.addEventListener('DOMContentLoaded', function() {
+    getHours(); // Inicia o relógio quando o conteúdo da página é carregado
+  });
+
 setInterval(() => {
     getHours()
 }, 1000)
