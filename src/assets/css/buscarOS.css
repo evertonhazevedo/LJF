@@ -1,0 +1,11 @@
+.btn-primary {
+    background-color: var(--cor-principal);
+    max-width: 100px;
+    padding: 5px 10px;
+    font-weight: 500;
+}
+
+#btn_irPara img {
+    width: 20px;
+}
+
