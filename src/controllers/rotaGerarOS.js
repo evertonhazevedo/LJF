@@ -5,8 +5,6 @@ const tabelaServicoOS = require('../migrations/servicoOS');
 const tabelaBaia = require('../migrations/baia');
 const tabelaFila = require('../migrations/fila');
 const sequelize = require('../models/db');
-const { NUMBER } = require('sequelize');
-
 
 /*Rota  para gerar a OS*/
 async function gerarOS(req, res) {

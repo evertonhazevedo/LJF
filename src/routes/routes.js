@@ -12,6 +12,8 @@ const listarServicos = require('../controllers/rotaListarServicos');
 const buscarInfoVeiculo = require('../controllers/rotaBuscarInfoVeiculo');
 const buscarClienteEVeiculo = require('../controllers/rotaBuscarClienteEVeiculo');
 const gerarOS = require('../controllers/rotaGerarOS');
+const recuperarBaia = require('../controllers/rotaRecuperarBaia');
+const recuperarOS = require('../controllers/rotaRecuperarOS');
 
 //rota que chama a funcao cadastrarFuncionario
 router.post('/cadastrar-funcionario', cadastrarFuncionario);
@@ -33,5 +35,11 @@ router.get('/buscar-info-veiculo/:placa', buscarInfoVeiculo);
 
 //rota que chama a funcao buscarClienteEVeiculo
 router.get('/buscar-cliente-e-veiculo/:cpf', buscarClienteEVeiculo);
+
+//rota que chama a funcao recuperarBaia
+router.get('/recuperar-baia', recuperarBaia);
+
+//rota que chama a funcao recuperarOS
+router.get('/recuperar-os', recuperarOS);
 
 module.exports = router;
