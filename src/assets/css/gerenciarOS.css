@@ -1,0 +1,67 @@
+#iptPesquisarOS{
+    border-width: 0px 0px 2px 0px;
+    border-radius: 0;
+    font-size: 1.5em;
+    width: 200px;
+    transition: width 400ms ease;
+}
+
+#iptPesquisarOS:focus{
+    box-shadow: none;
+    width: 250px;
+}
+
+#dados_cliente .input {
+    padding: 0.3rem 0.5rem;
+}
+
+#previsao, #valorTotal {
+    background-color: var(--cor-cinza);
+}
+
+p {
+    margin: 0;
+}
+
+#previsao {
+    padding: 5px 10px;
+    margin: 40px 0px 20px 0;
+    vertical-align: middle;
+    
+}
+
+#previsao img {
+    width: 30px;
+    height: 30px;
+    vertical-align: bottom;
+    margin: 0 10px;
+}
+
+#ttlValorTotal { 
+    font-size: 3.5em;
+}
+
+#valorTotal {
+    font-size: 4em;
+    padding: 0px 10px;
+}
+
+#btnPagarOS {
+    padding: 2rem 0.5rem;
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+#inputServicos {
+    border-width: 2px 0px 2px 2px;
+}
+
+.input-group-text {
+    background-color: white;
+    border: solid var(--cor-principal);
+    border-width: 2px 2px 2px 0px;
+}
+
+.input-group-text img{
+    width: 20px;
+}
