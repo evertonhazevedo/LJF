@@ -7,6 +7,7 @@ document.getElementById('btnLiberar')
     let optionBaiaSeparado = optionBaia.split(' ');
     let cd_baia = optionBaiaSeparado[0];
     let cd_ordem_servico = optionBaiaSeparado[1];
+    let nome = optionBaiaSeparado[2];
 
     Swal.fire({
       icon: 'warning',
@@ -28,7 +29,8 @@ document.getElementById('btnLiberar')
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             cd_ordem_servico,
-            cd_baia
+            cd_baia,
+            nome
           })
         };
 

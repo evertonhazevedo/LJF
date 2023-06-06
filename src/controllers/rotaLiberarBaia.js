@@ -5,7 +5,7 @@ const tabelaBaia = require('../migrations/baia');
 const sequelize = require('../models/db');
 
 /*Importação das bibliotecas*/
-const { Vonage } = require('@vonage/server-sdk')
+const twilio = require('twilio');
 require('dotenv').config();
 
 
@@ -15,42 +15,10 @@ async function liberarBaia(req, res) {
   // Recuperando dados do body
   let body = req.body;
 
-  //Instanciando objeto client Vonage
-  const vonage = new Vonage({
-    apiKey: process.env.VONAGE_API_KEY,
-    apiSecret: process.env.VONAGE_SECRET,
-    // applicationId: process.env.VONAGE_APPLICATION_ID,
-    // privateKey: process.env.VONAGE_APPLICATION_PRIVATE_KEY
-  })
+  let numeroCliente = '8185576712';
 
-  let numero = '5581985576712';
-
-  // await vonage.sms.send(
-
-  //   { "type": "sms", "number": numero },
-  //   { "type": "sms", "number": "Lava Jato FiCR" },
-  //   {
-  //     "content": {
-  //       "type": "text",
-  //       "text": 'Ola Everton! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF'
-  //     }
-
-  //   }).then(function (sms) {
-
-  //     return res.status(200).json({
-  //       success: true,
-  //       sms: sms
-  //     });
-
-  //   }).catch(function (error) {
-
-  //     return res.status(400).json({
-  //       success: false,
-  //       message: 'Não possível enviar o sms. Motivo: ' + error
-  //     });
-
-  //   });
-
+  //Instanciando objeto client Twilio
+  const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
   await tabelaOrdemServico.update({
 
@@ -82,11 +50,11 @@ async function liberarBaia(req, res) {
             }).then(async function () {
 
 
-              await vonage.sms.send({
+              await client.messages.create({
 
-                to: numero,
-                from: 'Lava Jato FICR',
-                text: 'Ola Everton! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF'
+                body: 'Ola ' + body.nome + '! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF',
+                from: process.env.TWILIO_WHATS_APP,
+                to: 'whatsapp:+55' + numeroCliente
 
               }).then(function (mensagem) {
 
@@ -171,11 +139,11 @@ async function liberarBaia(req, res) {
 
                       try {
 
-                        await vonage.sms.send({
+                        await client.messages.create({
 
-                          to: numero,
-                          from: 'Lava Jato FICR',
-                          text: 'Ola Everton! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF'
+                          body: 'Ola Everton! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF',
+                          from: TWILIO_WHATS_APP,
+                          to: 'whatsapp:+558185576712'
 
                         }).then(function (mensagem) {
 
