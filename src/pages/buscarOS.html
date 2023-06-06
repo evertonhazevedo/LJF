@@ -22,7 +22,7 @@
     <div class="container">
       <div class="row justify-content-center">
         
-         <div class="col-9">
+         <div class="col-11">
           <!-- Titulo e Barra de Pesquisa-->
           <h4>Pesquisar OS</h4>
           <div class="input-group pesquisar_servicos mb-3">
@@ -48,7 +48,7 @@
                 <td>PCL-4444</td>
                 <td>João</td>
                 <td>30 min</td>
-                <td><button id="btn_irPara" class="btn btn-primary">Ir para <img src="../assets/icon/irpara-icon.svg"></button></td>
+                <td><a href="gerenciarOS.html" target="_blank"><button id="btn_irPara" class="btn btn-primary" >Ir para <img src="../assets/icon/irpara-icon.svg"></button></a></td>
               </tr>
   
               <tr>
@@ -91,11 +91,17 @@
       </div>
     </div>
 
+    <!-- Modal Cadastro de Cliente-->
+    <div class="modal fade" id="mdlClienteVeiculo" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
 
-      <!-- Container para o conteúdo do modal -->
-  <div id="modalContainer"></div>
-  
-  <!-- <script>
+    </div>
+
+    <!-- Modal Cadastrar baia-->
+    <div class="modal fade" id="mdlCadastrarBaia" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+
+    </div>
+
+     <!-- <script>
       // Função para carregar o conteúdo do modal
 
       window.addEventListener('DOMContentLoaded', function() {
@@ -114,19 +120,6 @@
   });
     </script>-->
 
-
-
-
-    <!-- Modal Cadastro de Cliente-->
-    <div class="modal fade" id="mdlClienteVeiculo" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
-
-    </div>
-
-    <!-- Modal Cadastrar baia-->
-    <div class="modal fade" id="mdlCadastrarBaia" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
-
-    </div>
-
   </section>
 
 
@@ -139,6 +132,7 @@
   <script src="../assets/js/deslogarFuncionario.js"></script>
   <script src="/src/assets/js/baseUrl.js"></script>
   <script src="../assets/js/mdlClienteVeiculo.js"></script>
+  <script src="../assets/js/mdlCadastrarBaia.js"></script>
 
    <!-- Tela de carregamento -->
        <div id="preloader">
