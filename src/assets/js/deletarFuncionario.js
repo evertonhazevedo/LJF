@@ -21,6 +21,7 @@ document.getElementById('btnDeletar')
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
+            allowOutsideClick: false,
             showConfirmButton: false,
             timer: 1500,
             timerProgressBar: true

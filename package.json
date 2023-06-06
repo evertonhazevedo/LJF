@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Projeto Programação WEB",
   "main": "server.js",
-    "scripts": {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,12 +17,15 @@
   },
   "homepage": "https://github.com/evertonhazevedo/LJF#readme",
   "dependencies": {
+    "@vonage/server-sdk": "^3.5.1",
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.1",
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.3.2",
-    "sequelize": "^6.31.1"
+    "sequelize": "^6.31.1",
+    "twilio": "^4.11.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

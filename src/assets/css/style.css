@@ -6,14 +6,11 @@
 
 :root {
     --cor-principal: #1B56ED;
+    --cor-secundaria: #0C286E;
     --cor-botao: var(--cor-principal);
     --cor-vermelho: #FF0000;
     --cor-verde: #1DB505;
     --cor-cinza: #D9D9D9;
-}
-
-.container {
-    margin-top: 50px;
 }
 
 body {
@@ -21,6 +18,14 @@ body {
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    background-color: var(--cor-secundaria);
+}
+section .container{
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 10px;
+    min-height: 600px;
+    margin-bottom: 50px;
 }
 
 @keyframes fadeInAnimation {
@@ -67,11 +72,12 @@ a {
     padding: 0;
     -webkit-box-shadow: 0px 6px 30px 10px rgba(0, 0, 0, 0.59);
     -moz-box-shadow: 0px 6px 30px 10px rgba(0, 0, 0, 0.59);
-    box-shadow: 0px 6px 30px 10px rgba(0, 0, 0, 0.59);
+    box-shadow: 0px 2px 30px 5px rgba(0, 0, 0, 0.59);
+    margin-bottom: 50px;
 }
 
 .menu_principal .container-fluid {
-    padding: 0!important;
+    padding: 0 !important;
 }
 
 
@@ -141,18 +147,19 @@ a {
     width: 100px;
     height: 40px;
     padding: 0.5em;
-    
+
 }
 
-#formCadCliente, #formCadBaia{
+#formCadCliente,
+#formCadBaia {
     --bs-gutter-y: 0.5rem;
-    
+
 }
 
 .btn-cadastrar {
     border: none;
     padding: 0.35rem 0.3rem;
-   
+
     margin-top: 35px;
     font-size: 1em;
     font-weight: 500;
@@ -163,7 +170,8 @@ a {
     width: 25px;
 }
 
-#iptPesquisarCliente, #iptQtdBaia{
+#iptPesquisarCliente,
+#iptQtdBaia {
     border-width: 0px 0px 2px 0px;
     border-radius: 0;
     font-size: 1.5em;
@@ -172,7 +180,8 @@ a {
     background-color: rgba(0, 0, 0, 0);
 }
 
-#iptPesquisarCliente:focus, #iptQtdBaia:focus{
+#iptPesquisarCliente:focus,
+#iptQtdBaia:focus {
     box-shadow: none;
     width: 280px;
 }
@@ -195,9 +204,47 @@ a {
     font-size: 1em;
 }
 
-#mdlCadastrarBaia .modal-footer .btn {
+.modal-footer .btn {
     width: 100px;
     height: 40px;
     padding: 0.5em;
-    
+
+}
+
+/* Tela de Carregamento */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    text-align: center;
+}
+
+#preloader img {
+    margin-top: 40vh;
+}
+
+.pesquisar_servicos input {
+    border-width: 2px 0px 2px 2px;
+}
+
+.input-group-text {
+    background-color: white;
+    border: solid var(--cor-principal);
+    border-width: 2px 2px 2px 0px;
+}
+
+.input-group-text img {
+    width: 20px;
+}
+
+/* cor do botao liberar baia */
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+    background-color: #1B56ED !important;
 }

@@ -6,10 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lava Jato FICR | Gerenciamento de OS</title>
-  <link rel="icon" type="image/png" href="../assets/img/LJF-LOGO.png"/>
+  <link rel="icon" type="image/png" href="../assets/img/LJF-LOGO.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/gerenciarOS.css">
 </head>
 
 <body>
@@ -17,18 +18,204 @@
 
   </nav>
 
-  <section class="mapaGeral">
+  <section class="gerenciarOS">
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-12">
+
+          <!--Título e Barra de Pesquisa de OS-->
+          <div id="pesquisarOS">
+            <h2>Pesquisar OS</h2>
+            <input type="text" class="form-control mb-5" id="iptPesquisarOS" maxlength="14" placeholder="Número da OS">
+          </div>
+
+          <!-- Formulário com os dados do cliente -->
+          <form id="dados_cliente" class="row align-items-center g-3">
+            <div class="col-md-6">
+              <label for="inputNome" class="form-label">Nome</label>
+              <input type="text" class="form-control input" id="inputNome" disabled>
+            </div>
+            <div class="col-md-6">
+              <label for="inputSobrenome" class="form-label">Sobrenome</label>
+              <input type="text" class="form-control input" id="inputSobrenome" disabled>
+            </div>
+            <div class="col-md-6">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input type="email" class="form-control input" id="inputEmail" disabled>
+            </div>
+            <div class="col-md-6">
+              <label for="inputCpf" class="form-label">Telefone</label>
+              <input type="text" class="form-control input" id="inputTelefone" disabled>
+            </div>
+
+            <div class="col-md-4">
+              <label for="inputPlaca" class="form-label">Placa</label>
+              <select type="text" class="form-control input" id="selectPlaca"
+                onchange="buscarInfoVeiculo(this)"></select>
+            </div>
+            <div class="col-md-4">
+              <label for="inputMarca" class="form-label">Marca</label>
+              <input type="text" class="form-control input" id="inputMarca" disabled>
+            </div>
+
+            <div class="col-md-4">
+              <label for="inputModelo" class="form-label">Modelo</label>
+              <input type="text" class="form-control input" id="inputModelo" disabled>
+            </div>
+
+            <div class="col-md-12">
+              <label for="iptGerenciarOS" class="form-label">Serviços</label>
+              <div class="input-group pesquisar_servicos">
+                <input type="search" class="form-control input" id="iptGerenciarOS">
+                <span class="input-group-text" id="basic-addon1"><img src="../assets/icon/pesquisar-icon.svg"></span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table class="table" id="tblGerenciarOS">
+                  <thead>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Tempo</th>
+                    <th>✓</th>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>Lavagem</td>
+                      <td>25,00</td>
+                      <td>25 min</td>
+                      <td><input type="checkbox" class="form-check-input" checked></td>
+                    </tr>
+
+                    <tr>
+                      <td>Aspiração</td>
+                      <td>25,00</td>
+                      <td>25 min</td>
+                      <td><input type="checkbox" class="form-check-input" checked></td>
+                    </tr>
+
+                    <tr>
+                      <td>Polimento</td>
+                      <td>50,00</td>
+                      <td>25 min</td>
+                      <td><input type="checkbox" class="form-check-input"></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="col-lg-4 col-md-12 ps-4">
+          <img src="../assets/img/LJF-LOGO-TRANSP.png" class="ljf_logo" alt="Lava Jato FICR Logo">
+          <div id="previsao">
+            <p>Previsão: <img src="../assets/icon/relogio.svg" alt="relógio"> <label id="previsaoTotal">0
+                Minutos</label></p>
+          </div>
+          <h1 id="ttlValorTotal">VALOR TOTAL</h1>
+          <p id="valorTotal">R$ 50,00</p>
+          <button type="button" id="btnPagarOS" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#mdlPagamento">PAGAR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Cadastro de Cliente-->
+    <div class="modal fade" id="mdlClienteVeiculo" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+
+    </div>
+
+    <!-- Modal Cadastrar baia-->
+    <div class="modal fade" id="mdlCadastrarBaia" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+
+    </div>
+
+    <!-- Modal Cadastrar baia-->
+    <div class="modal fade" id="mdlPagamento" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+      <!-- Modal Pagamento -->
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title titulo_padrao fs-2" id="modalTitulo">Pagamento da OS</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="col-12">
+              <h5>Formas de Pagamento</h5>
+            </div>
+            <div id="formasPagamento" class="mb-5">
+              <div class="row">
+                <div class="col-2">
+                  <label for="iptDinheiro"><img id="iconDinheiro" src="../assets/icon/dinheiro-icon.svg" alt="Dinheiro"></label>
+                  <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptDinheiro" checked>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <label for="iptVisa"><img src="../assets/icon/visa-icon.svg" alt="Visa"></label>
+                  <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptVisa"></div>
+                </div>
+                <div class="col-2">
+                 <label for="iptMastercard"> <img src="../assets/icon/mastercard-icon.svg" alt="Mastercard"></label>
+                  <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptMastercard"></div>
+                </div>
+                <div class="col-2">
+                  <label for="iptMaestro"><img src="../assets/icon/maestro-icon.svg" alt="Maestro"></label>
+                  <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptMaestro"></div>
+                </div>
+              </div>
+            </div>
+            <div id="iptPagamento">
+              <div class="row mb-3">
+                <div class="col-5">
+                  <h2>Valor Total</h2>
+                  <input id="iptValorTotal" type="text" class="form-control" value="R$ 100,00" disabled>
+                </div>
+                <div class="col-5">
+                  <h2>Troco</h2>
+                  <input id="iptTroco" type="text" class="form-control" value="R$ 50,00" disabled>
+                </div>
+              </div>
+
+              <div class="row align-items-end">
+                <div class="col-5">
+                  <h2 id="valorPago">Valor Pago</h2>
+                  <input id="iptValorPago" class="form-control" type="text">
+                </div>
+                <div class="col-5">
+                  <button type="button" class="btn btn-primary">Finalizar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </section>
 
   <!--Importacao javascript-->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
   <script src="../assets/js/menu.js"></script>
   <script src="../assets/js/deslogarFuncionario.js"></script>
-  <script src="./src/assets/js/baseUrl.js"></script>
-  <script src="../assets/js/mascaras.js"></script>
+  <script src="../assets/js/listarServicos.js"></script>
+  <script src="/src/assets/js/baseUrl.js"></script>
+  <script src="/src/assets/js/somarTotalTempoValor.js"></script>
+  <script src="/src/assets/js/buscarClienteEVeiculo.js"></script>
+  <script src="/src/assets/js/buscarInfoVeiculo.js"></script>
+  <script src="/src/assets/js/mascaras.js"></script>
   <script src="/src/assets/js/cadastrarCliente.js"></script>
   <script src="/src/assets/js/cadastrarVeiculo.js"></script>
+  <!-- Modais -->
+  <script src="../assets/js/mdlClienteVeiculo.js"></script>
+  <script src="../assets/js/mdlCadastrarBaia.js"></script>
 
 </body>
 

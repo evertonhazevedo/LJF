@@ -24,7 +24,13 @@ const tabelaOrdemServico = db.define('ordemServico', {
   previsao: {
     type: Sequelize.TIME,
     allowNull: false
+  },
+
+  status: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
+
 
 }, { freezeTableName: true });
 

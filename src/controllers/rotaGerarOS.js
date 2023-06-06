@@ -5,8 +5,6 @@ const tabelaServicoOS = require('../migrations/servicoOS');
 const tabelaBaia = require('../migrations/baia');
 const tabelaFila = require('../migrations/fila');
 const sequelize = require('../models/db');
-const { NUMBER } = require('sequelize');
-
 
 /*Rota  para gerar a OS*/
 async function gerarOS(req, res) {
@@ -16,7 +14,7 @@ async function gerarOS(req, res) {
   //buscando baia disponível
   const baia = await tabelaBaia.findOne({
     where: {
-      status: '0'
+      status: '0' //Status Livre
     }
   })
   //se encontrar baia disponível entra
@@ -41,7 +39,8 @@ async function gerarOS(req, res) {
           cd_movimentacao: movimentacao,
           cd_baia: baia.cd_baia,
           valor_total: body.valor_total,
-          previsao: body.previsaoConvertida
+          previsao: body.previsaoConvertida,
+          status: '0' //Status em aberto
 
         }).then(async function (ordemServico) {
 
@@ -144,7 +143,8 @@ async function gerarOS(req, res) {
           cd_veiculo: body.veiculo,
           cd_movimentacao: movimentacao,
           valor_total: body.valor_total,
-          previsao: body.previsaoConvertida
+          previsao: body.previsaoConvertida,
+          status: '0' //Status em aberto
 
         }).then(async function (ordemServico) {
 
