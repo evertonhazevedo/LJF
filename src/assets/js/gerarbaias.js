@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Loop para criar os cards
     for (let i = 0; i < response.baias.length; i++) {
 
+      //Zerando variavéis toda vez que for chamada a função
       tempo = '';
       numeroOS = '';
       previsao = '';
@@ -51,8 +52,10 @@ document.addEventListener('DOMContentLoaded', async function () {
       cliente = '';
       modelo = '';
 
+      //Pega o numero da baia
       numeroBaia = response.baias[i].cd_baia;
 
+      //Define o status da baia
       if (response.baias[i].status == 0) {
 
         status = '0';
@@ -65,10 +68,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
       }
 
-      // criação do card
+      // criação de uma div coluna para estrutura do card
       col = document.createElement('div');
       col.classList.add('col');
 
+      // criação do card
       card = document.createElement('div');
       card.classList.add('card');
       card.setAttribute('id', 'Baia' + response.baias[i].cd_baia);
@@ -85,6 +89,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       cardFooter.setAttribute('data-status', status);
       cardFooter.innerText = textoBaia;
 
+      // criação de uma div linha para estrutura do card
       row = document.createElement('div');
       row.classList.add('row');
 
@@ -102,8 +107,11 @@ document.addEventListener('DOMContentLoaded', async function () {
       modeloCard = document.createElement('p');
       modeloCard.setAttribute('id', 'marca_modelo' + i);
 
+      strong = document.createElement('strong');
+
       pCliente = document.createElement('p');
       pCliente.innerText = 'Cliente: ';
+      pCliente.innerHTML = '<strong>Cliente: </strong>';
 
       labelCliente = document.createElement('label');
       labelCliente.setAttribute('id', 'cliente' + i);
@@ -148,6 +156,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       col7.appendChild(placaCard);
       col7.appendChild(modeloCard);
       col7.appendChild(pCliente);
+      pCliente.appendChild(strong);
       pCliente.appendChild(labelCliente);
       row.appendChild(col5);
       col5.appendChild(h5);
@@ -160,14 +169,32 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   // Função para iniciar a contagem regressiva
-  function iniciarContagemRegressiva(tempo, elementoTempo) {
-    const intervalo = setInterval(() => {
+  function iniciarContagemRegressiva(tempo, elementoTempo, baia) {
+    const intervalo = setInterval(async () => {
       tempo--;
       elementoTempo.innerText = formatarTempo(tempo);
 
       if (tempo <= 0) {
+
         clearInterval(intervalo);
-        elementoTempo.innerText = '00:00:00';
+
+        Swal.fire({
+          icon: 'info',
+          title: 'Tempo da baia ' + baia + ' esgotado!',
+          html: 'Deseja fazer o checkout?',
+          showDenyButton: true,
+          allowOutsideClick: false,
+          confirmButtonText: 'Checkout',
+          denyButtonText: 'Adicionar mais 30 minutos',
+        }).then(async (result) => {
+
+          if (result.isConfirmed) {
+            elementoTempo.innerText = 'Finalizada';
+
+          } else {
+            elementoTempo.innerText = 'Atrasada';
+          }
+        })
       }
     }, 1000); // Atualizar a cada segundo
   }
@@ -208,7 +235,6 @@ document.addEventListener('DOMContentLoaded', async function () {
   fetch(baseUrl + '/recuperar-os', optionsOS)
     .then(response => response.json())
     .then(response => {
-      console.log(response)
 
       if (response.success == true) {
 
@@ -243,7 +269,7 @@ document.addEventListener('DOMContentLoaded', async function () {
               idCliente.innerText = cliente;
               idPRevisao.innerText = formatarTempo(tempo);
 
-              iniciarContagemRegressiva(tempo, idPRevisao);
+              iniciarContagemRegressiva(tempo, idPRevisao, response.ordemServico[i].cd_baia);
 
               break;
 

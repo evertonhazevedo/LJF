@@ -56,7 +56,7 @@ document.getElementById('btnCadastrar')
       fetch(baseUrl + '/cadastrar-funcionario', options)
         .then(response => response.json())
         .then(async response => {
-          console.log(response);
+
           if (response.success == true) {
 
             await Toast.fire({

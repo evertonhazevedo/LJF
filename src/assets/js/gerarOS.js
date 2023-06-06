@@ -108,6 +108,7 @@ document.getElementById('btnGerarOs')
                 title: 'Ordem de Serviço gerada com sucesso!',
                 html: 'Número da OS: ' + response.ordemServico.cd_ordem_servico + '<br><br>Posição na fila: '+ response.posicaoFila,
                 showDenyButton: true,
+                allowOutsideClick: false,
                 confirmButtonText: 'Ok',
                 denyButtonText: 'Ir para o mapa',
               }).then(async (result) => {
