@@ -16,7 +16,7 @@ document.getElementById('btnDeletar')
     fetch(baseUrl + '/deletar-funcionario', options)
       .then(response => response.json())
       .then(async response => {
-        console.log(response);
+
         if (response.success == true) {
           const Toast = Swal.mixin({
             toast: true,

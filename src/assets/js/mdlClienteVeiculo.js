@@ -18,25 +18,25 @@ modal.innerHTML = `<div class="modal-dialog">
       </div>
        <div class="col-md-6 col-sm-12">
         <label for="iptNomeCli" class="form-label">Nome</label>
-        <input type="text" class="form-control input" id="iptNomeCli">
+        <input type="text" class="form-control inputsCliente" id="iptNomeCli">
       </div>
       <div class="col-md-6 col-sm-12">
         <label for="iptSobrenomeCli" class="form-label">Sobrenome</label>
-        <input type="text" class="form-control input" id="iptSobrenomeCli">
+        <input type="text" class="form-control inputsCliente" id="iptSobrenomeCli">
       </div>
       <div class="col-md-12">
         <label for="iptEmailCli" class="form-label">Email</label>
-        <input type="email" class="form-control input" id="iptEmailCli">
+        <input type="email" class="form-control inputsCliente" id="iptEmailCli">
       </div>
       <div class="col-md-6 col-sm-12">
         <label for="iptCpfCli" class="form-label">CPF</label>
-        <input type="text" class="form-control input" id="iptCpfCli" onkeypress="mascaraCpf(this)" maxlength="14"
+        <input type="text" class="form-control inputsCliente" id="iptCpfCli" onkeypress="mascaraCpf(this)" maxlength="14"
           onkeypress="mascaraCpf(this)">
       </div>
 
       <div class="col-md-6 col-sm-12">
-        <label for="iptTelefoneCli" class="form-label">Telefone</label>
-        <input type="tel" class="form-control input" id="iptTelefoneCli">
+        <label for="iptTelefoneCli" class="form-label" onkeypress="handlePhone(this)">Telefone</label>
+        <input type="tel" class="form-control inputsCliente" id="iptTelefoneCli">
       </div>
 
       <!-- Veículos -->
@@ -46,21 +46,21 @@ modal.innerHTML = `<div class="modal-dialog">
 
       <div class="col-lg-3">
         <label for="iptPlacaCli" class="form-label">Placa</label>
-        <input type="tel" class="form-control input" id="iptPlacaCli">
+        <input type="tel" class="form-control inputsVeiculo" id="iptPlacaCli" disabled>
       </div>
 
       <div class="col-lg-3">
         <label for="iptMarcaCli" class="form-label">Marca</label>
-        <input type="tel" class="form-control input" id="iptMarcaCli">
+        <input type="tel" class="form-control inputsVeiculo" id="iptMarcaCli" disabled>
       </div>
 
       <div class="col-lg-3">
         <label for="iptModeloCli" class="form-label">Modelo</label>
-        <input type="tel" class="form-control input" id="iptModeloCli">
+        <input type="tel" class="form-control inputsVeiculo" id="iptModeloCli" disabled>
       </div>
 
       <div class="col-lg-3">
-        <button type="button" class="btn btn-primary btn-cadastrar" id="btnCadastrarVei">Cadastrar<img
+        <button type="button" class="btn btn-primary btn-cadastrar" id="btnCadastrarVei" disabled>Cadastrar<img
             src="../assets/icon/cadastrar-icon.svg"></button>
       </div>
 

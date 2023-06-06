@@ -1,6 +1,5 @@
 // importacao da tabela veiculo
 const tabelaVeiculo = require("../migrations/veiculos");
-const bcrypt = require('bcrypt');
 
 //Criando funcao para cadastrar veiculo
 async function cadastrarVeiculo(req, res) {
@@ -26,7 +25,7 @@ async function cadastrarVeiculo(req, res) {
 
     //criando veículo na tabela veículos
     await tabelaVeiculo.create({
-      cd_veiculo: dados.cd_veiculo,
+
       placa: dados.placa,
       marca: dados.marca,
       modelo: dados.modelo,

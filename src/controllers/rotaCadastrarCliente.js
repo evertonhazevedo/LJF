@@ -1,6 +1,5 @@
 // importacao da tabela cliente
 const tabelaCliente = require("../migrations/cliente");
-const bcrypt = require('bcrypt');
 
 //Criando funcao para cadastrar cliente
 async function cadastrarCliente(req, res) {
@@ -26,7 +25,7 @@ async function cadastrarCliente(req, res) {
 
     //criando cliente na tabela usuário
     await tabelaCliente.create({
-      cd_cliente: dados.cd_cliente,
+
       cpf: dados.cpf,
       nome: dados.nome,
       sobrenome: dados.sobrenome,

@@ -43,8 +43,7 @@ document.getElementById('inputPesquisar')
 
     if (evento.key === 'Enter') {
 
-      const cpfCompleto = document.getElementById('inputPesquisar').value;
-
+      let cpfCompleto = document.getElementById('inputPesquisar').value;
       let cpfSemPonto = cpfCompleto.replace('.', '');
       let cnpfSemPonto1 = cpfSemPonto.replace('.', '');
       let cpf = cnpfSemPonto1.replace('-', '');
@@ -86,4 +85,3 @@ document.getElementById('inputPesquisar')
         .catch(err => console.error(err));
     }
   });
-

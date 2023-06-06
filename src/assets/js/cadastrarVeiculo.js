@@ -4,8 +4,13 @@ document.getElementById('btnCadastrarVei')
     let placa = document.getElementById('iptPlacaCli').value;
     let marca = document.getElementById('iptMarcaCli').value;
     let modelo = document.getElementById('iptModeloCli').value;
+    let cd_cliente = localStorage.getItem('idClienteCadastrado');
 
-    if (validarCampos('input')) {
+    
+    let nome = document.getElementById('iptNomeCli').value;
+    console.log('nome: ' + nome)
+
+    if (validarCampos('inputsVeiculo')) {
 
       await Swal.fire({
         icon: 'error',
@@ -13,48 +18,67 @@ document.getElementById('btnCadastrarVei')
         text: 'Preencha todos os campos!'
       })
 
+    } else if (nome == '') {
+
+      await Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Cadastre ou busque um cliente já cadastrado!'
+      })
+
     } else {
 
-      const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          placa,
-          marca,
-          modelo
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        placa,
+        marca,
+        modelo,
+        cd_cliente
 
-        })
-      };
+      })
+    };
 
-      fetch(baseUrl + '/cadastrar-veiculo', options)
-        .then(response => response.json())
-        .then(async response => {
-          console.log(response);
-          if (response.success == true) {
+    fetch(baseUrl + '/cadastrar-veiculo', options)
+      .then(response => response.json())
+      .then(async response => {
 
-            await Toast.fire({
-              icon: 'success',
-              title: 'Cadastrado com sucesso'
-            })
-            window.location.href = 'mapaGeral.html';
+        if (response.success == true) {
 
-          } else {
-            if (response.codigo == 01) {
-              await Toast.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Veículo já cadastrado'
-              })
-            } else {
-              await Toast.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Erro ao cadastrar veículo' + response.message
-              })
-            }
+          let inputs = document.getElementsByClassName("inputsVeiculo");
+
+          for (let i = 0; i < inputs.length; i++) {
+            inputs[i].setAttribute('disabled', ' ');
           }
 
-        })
-        .catch(err => console.error(err));
-    }
+          let btnCadVeiculo = document.getElementById('btnCadastrarVei');
+          btnCadVeiculo.setAttribute('disabled', ' ');
+
+          await Swal.fire({
+            icon: 'success',
+            title: 'Veículo cadastrado com sucesso'
+          })
+
+          window.location.reload(true);
+
+        } else {
+          if (response.codigo == 01) {
+            await Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Veículo já cadastrado'
+            })
+          } else {
+            await Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Erro ao cadastrar veículo' + response.message
+            })
+          }
+        }
+
+      })
+      .catch(err => console.error(err));
+  }
   });
