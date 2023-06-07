@@ -26,6 +26,7 @@ async function cadastrarVeiculo(req, res) {
     //criando veículo na tabela veículos
     await tabelaVeiculo.create({
 
+      tipo: dados.tipo,
       placa: dados.placa,
       marca: dados.marca,
       modelo: dados.modelo,

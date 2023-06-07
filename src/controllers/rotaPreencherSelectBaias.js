@@ -7,7 +7,7 @@ async function preencherSelectBaias(req, res) {
   //Recuperando os em aberto que estão em alguma baia
   const [selectBaias] = await sequelize.query(
 
-    `SELECT ba.cd_baia, os.cd_ordem_servico, cli.nome FROM baia ba
+    `SELECT ba.cd_baia, os.cd_ordem_servico, cli.nome, cli.telefone FROM baia ba
      INNER JOIN ordemServico os ON ba.cd_baia = os.cd_baia
      INNER JOIN cliente cli ON os.cd_cliente = cli.cd_cliente
      AND os.status = 0

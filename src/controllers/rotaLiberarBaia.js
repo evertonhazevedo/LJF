@@ -15,10 +15,9 @@ async function liberarBaia(req, res) {
   // Recuperando dados do body
   let body = req.body;
 
-  let numeroCliente = '8185576712';
-
   //Instanciando objeto client Twilio
   const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+
 
   await tabelaOrdemServico.update({
 
@@ -54,7 +53,7 @@ async function liberarBaia(req, res) {
 
                 body: 'Ola ' + body.nome + '! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF',
                 from: process.env.TWILIO_WHATS_APP,
-                to: 'whatsapp:+55' + numeroCliente
+                to: 'whatsapp:+55' + body.whatsapp
 
               }).then(function (mensagem) {
 
@@ -141,12 +140,12 @@ async function liberarBaia(req, res) {
 
                         await client.messages.create({
 
-                          body: 'Ola Everton! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF',
-                          from: TWILIO_WHATS_APP,
-                          to: 'whatsapp:+558185576712'
+                          body: 'Ola ' + body.nome + '! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF',
+                          from: process.env.TWILIO_WHATS_APP,
+                          to: 'whatsapp:+55' + body.whatsapp
 
                         }).then(function (mensagem) {
-
+                          console.log('entrei: ' + process.env.TWILIO_WHATS_APP);
                           return res.status(200).json({
                             success: true,
                             primeiroFila: primeiroFila,

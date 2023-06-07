@@ -131,10 +131,19 @@ document.addEventListener('DOMContentLoaded', async function () {
       labelH5 = document.createElement('label');
       labelH5.setAttribute('id', 'id_OS' + i);
 
-
       imgVeiculo = document.createElement('div');
       imgVeiculo.classList.add('img_veiculo');
-      imgVeiculo.setAttribute('data-veiculo', 'carro');
+
+      if (response.ordemServico[i] != undefined && response.ordemServico[i].tipo == 1) {
+
+        imgVeiculo.setAttribute('data-veiculo', 'moto');
+
+      } else {
+
+        imgVeiculo.setAttribute('data-veiculo', 'carro');
+
+      }
+
 
       imgRelogio = document.createElement('img');
       imgRelogio.setAttribute('id', 'relogio-icon');
@@ -169,7 +178,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   // Função para iniciar a contagem regressiva
-  function iniciarContagemRegressiva(tempo, elementoTempo, baia) {
+  function iniciarContagemRegressiva(tempo, elementoTempo, baia, os, nome, telefone) {
     const intervalo = setInterval(async () => {
       tempo--;
       elementoTempo.innerText = formatarTempo(tempo);
@@ -189,7 +198,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         }).then(async (result) => {
 
           if (result.isConfirmed) {
-            elementoTempo.innerText = 'Finalizada';
+
+            localStorage.setItem('osCheckout', os);
+            localStorage.setItem('baiaCheckout', baia);
+            localStorage.setItem('nomeClienteCheckout', nome);
+            localStorage.setItem('telefoneClienteCheckout', telefone);
+
+            liberarBaia();
 
           } else {
             elementoTempo.innerText = 'Atrasada';
@@ -217,18 +232,18 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   }
 
-  const optionsBaia = { method: 'GET' };
+  // const optionsBaia = { method: 'GET' };
 
-  await fetch(baseUrl + '/recuperar-baia', optionsBaia)
-    .then(response => response.json())
-    .then(response => {
+  // await fetch(baseUrl + '/recuperar-baia', optionsBaia)
+  //   .then(response => response.json())
+  //   .then(response => {
 
-      if (response.success == true) {
-        // Chamar a função para criar os cards
-        criarCards(response);
-      }
-    })
-    .catch(err => console.error(err));
+  //     if (response.success == true) {
+  //       // Chamar a função para criar os cards
+  //       criarCards(response);
+  //     }
+  //   })
+  //   .catch(err => console.error(err));
 
   const optionsOS = { method: 'GET' };
 
@@ -237,6 +252,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     .then(response => {
 
       if (response.success == true) {
+
+        criarCards(response);
 
         const baias = document.getElementsByClassName('baias');
 
@@ -269,7 +286,7 @@ document.addEventListener('DOMContentLoaded', async function () {
               idCliente.innerText = cliente;
               idPRevisao.innerText = formatarTempo(tempo);
 
-              iniciarContagemRegressiva(tempo, idPRevisao, response.ordemServico[i].cd_baia);
+              iniciarContagemRegressiva(tempo, idPRevisao, response.ordemServico[i].cd_baia, numeroOS, response.ordemServico[i].nome, response.ordemServico[i].telefone);
 
               break;
 

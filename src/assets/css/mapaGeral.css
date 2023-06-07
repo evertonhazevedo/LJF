@@ -52,7 +52,7 @@
 
 .img_veiculo[data-veiculo='moto'] {
     background-image: url('../icon/moto-icon.svg');
-    max-width: 70px;
+    max-width: 73px;
 }
 
 .img_veiculo[data-veiculo='carro'] {

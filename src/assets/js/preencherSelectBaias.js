@@ -20,7 +20,7 @@ document.getElementById('btnCheckout')
 
             let optionBaia = document.createElement('option');
             optionBaia.innerHTML = 'Baia ' + element.cd_baia;
-            optionBaia.value = element.cd_baia + ' ' +  element.cd_ordem_servico + ' ' + element.nome;
+            optionBaia.value = element.cd_baia + ' ' +  element.cd_ordem_servico + ' ' + element.nome  + ' ' + element.telefone;
             selectBaia.appendChild(optionBaia);
 
           });

@@ -1,6 +1,7 @@
 document.getElementById('btnCadastrarVei')
   .addEventListener('click', async function () {
 
+    let tipo = document.getElementById('iptTipo').value;
     let placa = document.getElementById('iptPlacaCli').value;
     let marca = document.getElementById('iptMarcaCli').value;
     let modelo = document.getElementById('iptModeloCli').value;
@@ -32,6 +33,8 @@ document.getElementById('btnCadastrarVei')
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        
+        tipo,
         placa,
         marca,
         modelo,
