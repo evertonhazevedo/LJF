@@ -3,7 +3,7 @@ const sequelize = require('../models/db');
 const tabelaBaia = require('../migrations/baia');
 
 /*Função para listar os serviços*/
-async function recuperarOS(req, res) {
+async function recuperarBaiasOS(req, res) {
 
 
   const baias = await tabelaBaia.findAll();
@@ -44,4 +44,4 @@ async function recuperarOS(req, res) {
 
   }
 }
-module.exports = recuperarOS;
+module.exports = recuperarBaiasOS;

@@ -51,7 +51,7 @@ async function liberarBaia(req, res) {
 
               await client.messages.create({
 
-                body: 'Ola ' + body.nome + '! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF',
+                body: 'Ola ' + body.nome + '! Estamos passando rapidinho para te avisar que o seu veículo já esta pronto para retirada. Att. Equipe LJF',
                 from: process.env.TWILIO_WHATS_APP,
                 to: 'whatsapp:+55' + body.whatsapp
 
@@ -67,7 +67,7 @@ async function liberarBaia(req, res) {
 
                 return res.status(400).json({
                   success: false,
-                  message: 'Não possível enviar o sms. Motivo: ' + error
+                  message: 'Não possível enviar a mensagem. Motivo: ' + error
                 });
 
               })
@@ -140,7 +140,7 @@ async function liberarBaia(req, res) {
 
                         await client.messages.create({
 
-                          body: 'Ola ' + body.nome + '! Estamos passando rapidinho para te avisar que o seu veiculo ja esta pronto para retirada. Att. Equipe LJF',
+                          body: 'Ola ' + body.nome + '! Estamos passando rapidinho para te avisar que o seu veículo já esta pronto para retirada. Att. Equipe LJF',
                           from: process.env.TWILIO_WHATS_APP,
                           to: 'whatsapp:+55' + body.whatsapp
 

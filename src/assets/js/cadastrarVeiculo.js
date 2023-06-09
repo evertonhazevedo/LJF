@@ -1,5 +1,4 @@
-document.getElementById('btnCadastrarVei')
-  .addEventListener('click', async function () {
+async function cadastrarVeiculo() {
 
     let tipo = document.getElementById('iptTipo').value;
     let placa = document.getElementById('iptPlacaCli').value;
@@ -84,4 +83,4 @@ document.getElementById('btnCadastrarVei')
       })
       .catch(err => console.error(err));
   }
-  });
+  };

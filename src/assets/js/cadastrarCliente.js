@@ -1,5 +1,4 @@
-document.getElementById('btnSalvarCliVei')
-  .addEventListener('click', async function () {
+async function cadastrarCliente() {
 
     let cpfCompleto = document.getElementById('iptCpfCli').value;
     let cpfSemPonto = cpfCompleto.replace('.', '');
@@ -90,4 +89,4 @@ document.getElementById('btnSalvarCliVei')
         })
         .catch(err => console.error(err));
     }
-  });
+  };

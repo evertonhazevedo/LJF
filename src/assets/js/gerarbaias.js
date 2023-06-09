@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       imgVeiculo = document.createElement('div');
       imgVeiculo.classList.add('img_veiculo');
 
-      if (response.ordemServico[i] != undefined && response.ordemServico[i].tipo == 1) {
+      if (response.ordemServico[i] != undefined && response.ordemServico[i].tipo == 2) {
 
         imgVeiculo.setAttribute('data-veiculo', 'moto');
 
@@ -177,79 +177,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
-  // Função para iniciar a contagem regressiva
-  function iniciarContagemRegressiva(tempo, elementoTempo, baia, os, nome, telefone) {
-    const intervalo = setInterval(async () => {
-      tempo--;
-      elementoTempo.innerText = formatarTempo(tempo);
-
-      if (tempo <= 0) {
-
-        clearInterval(intervalo);
-
-        Swal.fire({
-          icon: 'info',
-          title: 'Tempo da baia ' + baia + ' esgotado!',
-          html: 'Deseja fazer o checkout?',
-          showDenyButton: true,
-          allowOutsideClick: false,
-          confirmButtonText: 'Checkout',
-          denyButtonText: 'Adicionar mais 30 minutos',
-        }).then(async (result) => {
-
-          if (result.isConfirmed) {
-
-            localStorage.setItem('osCheckout', os);
-            localStorage.setItem('baiaCheckout', baia);
-            localStorage.setItem('nomeClienteCheckout', nome);
-            localStorage.setItem('telefoneClienteCheckout', telefone);
-
-            liberarBaia();
-
-          } else {
-            elementoTempo.innerText = 'Atrasada';
-          }
-        })
-      }
-    }, 1000); // Atualizar a cada segundo
-  }
-
-  // Função para formatar o tempo em horas:minutos:segundos
-  function formatarTempo(tempo) {
-
-    // conversões
-    const horas = Math.floor(tempo / (60 * 60));
-    const divisorMinutos = tempo % (60 * 60);
-    const minutos = Math.floor(divisorMinutos / 60);
-    const segundos = tempo % 60;
-
-    // formatação
-    const hour = horas < 10 ? `0${horas}` : horas
-    const minute = minutos < 10 ? `0${minutos}` : minutos
-    const seconds = segundos < 10 ? `0${segundos}` : segundos
-
-    return `${hour}:${minute}:${seconds.toString().padStart(2, '0')}`;
-
-  }
-
-  // const optionsBaia = { method: 'GET' };
-
-  // await fetch(baseUrl + '/recuperar-baia', optionsBaia)
-  //   .then(response => response.json())
-  //   .then(response => {
-
-  //     if (response.success == true) {
-  //       // Chamar a função para criar os cards
-  //       criarCards(response);
-  //     }
-  //   })
-  //   .catch(err => console.error(err));
-
   const optionsOS = { method: 'GET' };
 
-  fetch(baseUrl + '/recuperar-os', optionsOS)
+  fetch(baseUrl + '/recuperar-baias-os', optionsOS)
     .then(response => response.json())
-    .then(response => {
+    .then(async response => {
 
       if (response.success == true) {
 
@@ -271,22 +203,28 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             if (numeroBaia == response.ordemServico[i].cd_baia) {
 
-              numeroOS = response.ordemServico[i].cd_ordem_servico;
-              placa = response.ordemServico[i].placa;
-              cliente = response.ordemServico[i].nome;
-              modelo = response.ordemServico[i].modelo;
+              if (localStorage.getItem('previsaoOS' + response.ordemServico[i].cd_ordem_servico)) {
 
-              previsao = response.ordemServico[i].previsao;
+                previsao = localStorage.getItem('previsaoOS' + response.ordemServico[i].cd_ordem_servico);
+
+              } else {
+
+                previsao = response.ordemServico[i].previsao;
+
+              }
+
               arrayPrevisao = previsao.split(':');
               tempo = (parseInt(arrayPrevisao[0]) * 3600) + (parseInt(arrayPrevisao[1]) * 60) + parseInt(arrayPrevisao[2]);
 
-              idOS.innerText = numeroOS;
-              idPlaca.innerText = placa;
-              idModelo.innerText = modelo;
-              idCliente.innerText = cliente;
+              let os = localStorage.getItem('');
+
+              idOS.innerText = response.ordemServico[i].cd_ordem_servico;
+              idPlaca.innerText = response.ordemServico[i].placa;
+              idModelo.innerText = response.ordemServico[i].modelo;
+              idCliente.innerText = response.ordemServico[i].nome;
               idPRevisao.innerText = formatarTempo(tempo);
 
-              iniciarContagemRegressiva(tempo, idPRevisao, response.ordemServico[i].cd_baia, numeroOS, response.ordemServico[i].nome, response.ordemServico[i].telefone);
+              iniciarContagemRegressiva(tempo, idPRevisao, response.ordemServico[i].cd_baia, response.ordemServico[i].cd_ordem_servico, response.ordemServico[i].nome, response.ordemServico[i].telefone);
 
               break;
 

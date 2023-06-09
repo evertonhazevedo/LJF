@@ -45,7 +45,7 @@ section .container{
     white-space: nowrap;
 }
 
-.form-control {
+.form-control, .form-select {
     border: 2px solid var(--cor-principal);
     color: var(--cor-principal) !important;
     padding: 0.2rem 0.5rem;
@@ -53,7 +53,7 @@ section .container{
     font-weight: 500;
 }
 
-.form-control:focus {
+.form-control:focus, .form-select:focus {
     box-shadow: 0 0 0 0.1rem rgba(13, 110, 253, .25);
 }
 

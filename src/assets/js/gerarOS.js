@@ -10,6 +10,7 @@ document.getElementById('btnGerarOs')
 
     let placa = document.getElementById("inputMarca").value;
     let nome = document.getElementById("inputNome").value;
+    let telefone = document.getElementById("inputTelefone").value;
     let previsao = document.getElementById('previsaoTotal').innerHTML;
     let arrayPrevisao = previsao.split(' ');
     let cliente = localStorage.getItem('cd_cliente');
@@ -121,6 +122,12 @@ document.getElementById('btnGerarOs')
               })
 
             } else {
+
+              let array1 = previsaoConvertida.split(':');
+              let tempo = (parseInt(array1[0]) * 3600) + (parseInt(array1[1]) * 60) + parseInt(array1[2]);
+              let whatsapp = telefone.substring(0, 2) + telefone.substring(3);
+             
+              iniciarContagemRegressiva(tempo, previsaoConvertida, response.ordemServico.cd_baia, response.ordemServico.cd_ordem_servico, nome, whatsapp);
 
               Swal.fire({
                 icon: 'success',

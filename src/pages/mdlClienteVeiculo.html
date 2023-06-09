@@ -44,11 +44,10 @@
     
           <div class="col-lg-2">
             <label for="iptPlacaCli" class="form-label">Tipo</label>
-            <select type="tel" class="form-control inputsVeiculo" id="iptTipo" disabled>
+            <select type="tel" class="form-select inputsVeiculo" id="iptTipo" disabled>
               <option value="1">Carro</option>
               <option value="2">Moto</option>
             </select>
-
           </div>
 
           <div class="col-lg-2">
@@ -67,7 +66,7 @@
           </div>
     
           <div class="col-lg-4">
-            <button type="button" class="btn btn-primary btn-cadastrar" id="btnCadastrarVei" disabled>Cadastrar<img
+            <button type="button" class="btn btn-primary btn-cadastrar" id="btnCadastrarVei" onclick="cadastrarVeiculo()" disabled>Cadastrar<img
                 src="../assets/icon/cadastrar-icon.svg"></button>
           </div>
     
@@ -111,7 +110,7 @@
         </form>
       </div>
       <div class="modal-footer justify-content-start">
-        <button type="button" class="btn btn-primary" id="btnSalvarCliVei">Salvar</button>
+        <button type="button" class="btn btn-primary" id="btnSalvarCliVei" onclick="cadastrarCliente()">Salvar</button>
         <button type="button" class="btn btn-danger" id="btnExcluirCli">Excluir</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>

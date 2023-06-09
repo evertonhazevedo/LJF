@@ -1,21 +1,21 @@
 //Função para fazer o checkout da baia
 function liberarBaia() {
 
+  var baseUrl = localStorage.getItem('baseUrl');
   var selectBaia = document.getElementById('selectBaia');
   var optionBaia = '';
   var optionBaiaSeparado = '';
   var cd_baia = '';
   var cd_ordem_servico = '';
   var nome = '';
-  var telefone = '';
   var whatsapp = '';
 
-  if (selectBaia.options.length <= 0) {
+  if (selectBaia == null || selectBaia.options.length <= 0) {
 
-    cd_ordem_servico = localStorage.getItem('osCheckout');
-    cd_baia = localStorage.getItem('baiaCheckout');
-    nome = localStorage.getItem('nomeClienteCheckout');
-    whatsapp = localStorage.getItem('telefoneClienteCheckout').substring(0, 2) + localStorage.getItem('telefoneClienteCheckout').substring(3);
+      cd_ordem_servico = localStorage.getItem('osCheckout');
+      cd_baia = localStorage.getItem('baiaCheckout');
+      nome = localStorage.getItem('nomeClienteCheckout');
+      whatsapp = localStorage.getItem('telefoneClienteCheckout').substring(0, 2) + localStorage.getItem('telefoneClienteCheckout').substring(3);
 
   } else {
 
@@ -40,8 +40,6 @@ function liberarBaia() {
 
 
     if (result.isConfirmed) {
-
-      var baseUrl = localStorage.getItem('baseUrl');
 
       const options = {
         method: 'PUT',
@@ -79,6 +77,7 @@ function liberarBaia() {
 
             if (localStorage.getItem('osCheckout')) {
 
+              localStorage.removeItem('previsaoOS' + cd_ordem_servico);
               localStorage.removeItem('osCheckout');
               localStorage.removeItem('baiaCheckout');
               localStorage.removeItem('nomeClienteCheckout');
@@ -86,7 +85,9 @@ function liberarBaia() {
 
             }
 
-            window.location.reload(true);
+            if(window.location.pathname == '/src/pages/mapaGeral.html'){
+              window.location.reload(true);
+            }
 
           } else {
 
@@ -101,8 +102,6 @@ function liberarBaia() {
         })
         .catch(err => console.error(err));
 
-    } else {
-      window.location.reload(true);
     }
   })
 
