@@ -122,6 +122,7 @@ a {
 
 .ljf_logo {
     width: 95%;
+    min-width: 350px;
 }
 
 /* Modal Cadastro de Clientes e Veículos */
@@ -267,4 +268,10 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
     overflow-y: scroll;
 }
 
+.modal:nth-of-type(even) {
+    z-index: 1055 !important;
+}
+.modal-backdrop.in:nth-of-type(even) {
+    z-index: 1050 !important;
+}
 
