@@ -11,7 +11,7 @@
         <div class="col-md-12 col-sm-12">
         <div id="">
         <h4>Pesquisar Cliente</h4>
-        <input type="text" class="form-control mb-3" id="iptPesquisarCliente" maxlength="14" placeholder="Informe o CPF" onkeypress="mascaraCpf(this)">
+        <input type="text" class="form-control mb-3" id="iptPesquisarCliente" maxlength="14" placeholder="Informe o CPF"  onkeypress="buscarClienteCadastrado(event, this)">
     </div>
           </div>
            <div class="col-md-6 col-sm-12">
@@ -28,8 +28,7 @@
           </div>
           <div class="col-md-6 col-sm-12">
             <label for="iptCpfCli" class="form-label">CPF</label>
-            <input type="text" class="form-control inputsCliente" id="iptCpfCli" onkeypress="mascaraCpf(this)" maxlength="14"
-              onkeypress="mascaraCpf(this)">
+            <input type="text" class="form-control inputsCliente" id="iptCpfCli" onkeypress="mascaraCpf(this)" maxlength="14">
           </div>
     
           <div class="col-md-6 col-sm-12">
@@ -45,8 +44,8 @@
           <div class="col-lg-2">
             <label for="iptPlacaCli" class="form-label">Tipo</label>
             <select type="tel" class="form-select inputsVeiculo" id="iptTipo" disabled>
-              <option value="1">Carro</option>
-              <option value="2">Moto</option>
+              <option value="carro">Carro</option>
+              <option value="moto">Moto</option>
             </select>
           </div>
 
@@ -74,7 +73,7 @@
           <div class="col-12">
             <div class="table-responsive tblVeiculos">
               <table id="tblVeiculosCli" class="table">
-                <thead>
+                <!-- <thead>
                   <th>ID</th>
                   <th>Placa</th>
                   <th>Marca</th>
@@ -103,7 +102,7 @@
                     <td>NINJA</td>
                     <td><button type="button" class="btn btn_editar_veiculo"><img src="../assets/icon/editar-icon.svg" alt="Editar"></button></td>
                   </tr>
-                </tbody>
+                </tbody> -->
               </table>
             </div>
           </div>

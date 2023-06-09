@@ -3,7 +3,7 @@ const tabelaCliente = require('../migrations/cliente');
 const tabelaVeiculo = require('../migrations/veiculos');
 
 /*Função para buscar a as informações do cliente e seus veiculos cadastrados*/
-async function buscarClienteEVeiculo(req, res) {
+async function buscarClienteEVeiculos(req, res) {
 
   const cliente = await tabelaCliente.findOne({
     where: {
@@ -24,7 +24,7 @@ async function buscarClienteEVeiculo(req, res) {
       return res.status(200).json({
         success: true,
         cliente: cliente,
-        veiculo: veiculo
+        veiculos: veiculo
       });
 
     } else {
@@ -49,4 +49,4 @@ async function buscarClienteEVeiculo(req, res) {
 }
 
 // Exportando função listarServicos
-module.exports = buscarClienteEVeiculo;
+module.exports = buscarClienteEVeiculos;

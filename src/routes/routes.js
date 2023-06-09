@@ -15,7 +15,7 @@ const deletarVeiculo = require('../controllers/rotaDeletarVeiculo');
 const autenticarFuncionario = require('../controllers/rotaAutenticarFuncionario');
 const listarServicos = require('../controllers/rotaListarServicos');
 const buscarInfoVeiculo = require('../controllers/rotaBuscarInfoVeiculo');
-const buscarClienteEVeiculo = require('../controllers/rotaBuscarClienteEVeiculo');
+const buscarClienteEVeiculos = require('../controllers/rotaBuscarClienteEVeiculos');
 const gerarOS = require('../controllers/rotaGerarOS');
 const recuperarBaiasOS = require('../controllers/rotaRecuperarBaiasOS');
 const listarFila = require('../controllers/rotaListarFila');
@@ -68,7 +68,7 @@ router.get('/listar-fila', listarFila);
 router.get('/buscar-info-veiculo/:placa', buscarInfoVeiculo);
 
 //rota que chama a funcao buscarClienteEVeiculo
-router.get('/buscar-cliente-e-veiculo/:cpf', buscarClienteEVeiculo);
+router.get('/buscar-cliente-e-veiculos/:cpf', buscarClienteEVeiculos);
 
 //rota que chama a funcao recuperarBaiasOS
 router.get('/recuperar-baias-os', recuperarBaiasOS);
