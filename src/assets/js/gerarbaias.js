@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', async function () {
   let imgVeiculo = '';
   let imgRelogio = '';
   let tempoRestante = '';
+  let divRelogio = '';
+  let divTempo = '';
 
   // Variaveis para preencher as informações dos cards
   let tempo = '';
@@ -112,6 +114,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       pCliente = document.createElement('p');
       pCliente.innerText = 'Cliente: ';
       pCliente.innerHTML = '<strong>Cliente: </strong>';
+      pCliente.setAttribute('class', 'cliente_texto');
 
       labelCliente = document.createElement('label');
       labelCliente.setAttribute('id', 'cliente' + i);
@@ -119,10 +122,6 @@ document.addEventListener('DOMContentLoaded', async function () {
       // Criando div col5 e tags que estarão dentro dela
       col5 = document.createElement('div');
       col5.classList.add('col-5');
-      col5.classList.add('d-flex');
-      col5.classList.add('flex-wrap');
-      col5.classList.add('align-content-between');
-      col5.classList.add('justify-content-center');
 
       h5 = document.createElement('h5');
       h5.classList.add('card-title');
@@ -144,15 +143,24 @@ document.addEventListener('DOMContentLoaded', async function () {
 
       }
 
-
+      divRelogio = document.createElement('div');
+      divRelogio.setAttribute('class', 'relogio_tempo');
       imgRelogio = document.createElement('img');
       imgRelogio.setAttribute('id', 'relogio-icon');
       imgRelogio.setAttribute('src', '../assets/icon/relogio.svg');
       imgRelogio.setAttribute('alt', 'relogio');
 
+      // Atribuindo relógio a uma div
+      divRelogio.appendChild(imgRelogio);
+
       // Criar elemento para exibir o tempo restante
+      divTempo = document.createElement('div');
+      divTempo.setAttribute('class', 'relogio_tempo')
       tempoRestante = document.createElement('span');
       tempoRestante.setAttribute('id', 'previsao' + i);
+
+      // Atribuindo tempo a uma div
+      divTempo.appendChild(tempoRestante);
 
       //Criando estrutura das tags hmtl outra
       container.appendChild(col);
@@ -171,8 +179,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       col5.appendChild(h5);
       h5.appendChild(labelH5);
       col5.appendChild(imgVeiculo);
-      col5.appendChild(imgRelogio);
-      col5.appendChild(tempoRestante);
+      col5.appendChild(divRelogio);
+      col5.appendChild(divTempo);
 
     }
   }

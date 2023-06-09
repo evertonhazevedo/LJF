@@ -16,15 +16,15 @@
           </div>
            <div class="col-md-6 col-sm-12">
             <label for="iptNomeCli" class="form-label">Nome</label>
-            <input type="text" class="form-control inputsCliente" id="iptNomeCli">
+            <input type="text" class="form-control inputsCliente" id="iptNomeCli" maxlength="100">
           </div>
           <div class="col-md-6 col-sm-12">
             <label for="iptSobrenomeCli" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control inputsCliente" id="iptSobrenomeCli">
+            <input type="text" class="form-control inputsCliente" id="iptSobrenomeCli" maxlength="100">
           </div>
           <div class="col-md-12">
             <label for="iptEmailCli" class="form-label">Email</label>
-            <input type="email" class="form-control inputsCliente" id="iptEmailCli">
+            <input type="email" class="form-control inputsCliente" id="iptEmailCli" maxlength="255">
           </div>
           <div class="col-md-6 col-sm-12">
             <label for="iptCpfCli" class="form-label">CPF</label>
@@ -32,8 +32,8 @@
           </div>
     
           <div class="col-md-6 col-sm-12">
-            <label for="iptTelefoneCli" class="form-label" onkeypress="handlePhone(this)">Telefone</label>
-            <input type="tel" class="form-control inputsCliente" id="iptTelefoneCli">
+            <label for="iptTelefoneCli" class="form-label">Telefone</label>
+            <input type="tel" class="form-control inputsCliente" id="iptTelefoneCli" onkeypress="mascaraTelefone(event)" maxlength="15">
           </div>
     
           <!-- Veículos -->
@@ -51,17 +51,17 @@
 
           <div class="col-lg-2">
             <label for="iptPlacaCli" class="form-label">Placa</label>
-            <input type="tel" class="form-control inputsVeiculo" id="iptPlacaCli" disabled>
+            <input type="tel" class="form-control inputsVeiculo" id="iptPlacaCli" maxlength="7" disabled>
           </div>
     
           <div class="col-lg-2">
             <label for="iptMarcaCli" class="form-label">Marca</label>
-            <input type="tel" class="form-control inputsVeiculo" id="iptMarcaCli" disabled>
+            <input type="tel" class="form-control inputsVeiculo" id="iptMarcaCli" maxlength="50" disabled>
           </div>
     
           <div class="col-lg-2">
             <label for="iptModeloCli" class="form-label">Modelo</label>
-            <input type="tel" class="form-control inputsVeiculo" id="iptModeloCli" disabled>
+            <input type="tel" class="form-control inputsVeiculo" id="iptModeloCli" maxlength="50" disabled>
           </div>
     
           <div class="col-lg-4">

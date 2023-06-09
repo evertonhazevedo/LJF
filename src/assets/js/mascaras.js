@@ -14,7 +14,8 @@ function mascaraCpf(i) {
 
 }
 
-const handlePhone = (event) => {
+// Mascara para telefone
+const mascaraTelefone = (event) => {
   let input = event.target
   input.value = phoneMask(input.value)
 }
@@ -27,6 +28,23 @@ const phoneMask = (value) => {
   return value
 }
 
+//Mascara para Real
+function mascaraReal(event) {
+  var elemento = event.target
+  var valor = elemento.value;
+
+  valor = valor + '';
+  valor = parseInt(valor.replace(/[\D]+/g, ''));
+  valor = valor + '';
+  valor = valor.replace(/([0-9]{2})$/g, ",$1");
+
+  if (valor.length > 6) {
+      valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+  }
+
+  elemento.value = valor;
+  if(valor == 'NaN') elemento.value = '';
+}
 
 // /*Função responsavel por recuperar os dados do cliente e os veiculos vinculados à ele na base 
 // de acordo com o cpf informado para montar o campo placa, é chamada após pressionar a tecla enter*/

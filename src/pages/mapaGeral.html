@@ -20,42 +20,46 @@
 
     <section class="mapaGeral">
         <div class="container">
-            <!--Titulo-->
             <div class="row">
-                <div class="col-6 mb-3">
-                    <h1>Mapa Geral</h1>
+                <div class="col-12">
+                    <!--Titulo-->
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <h1>Mapa Geral</h1>
+                    </div>
                 </div>
-            </div>
 
-            <!--Baias-->
-            <div class="row mb-4">
-                <div class="col-8">
-                    <h1>Baias</h1>
+                <!--Baias-->
+                <div class="row mb-4">
+                    <div class="col-8">
+                        <h1>Baias</h1>
+                    </div>
                 </div>
-            </div>
 
-            <!--Baias -->
-            <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 g-4 mb-4" id='divBaia'>
+                <!--Baias -->
+                <div class="row row-cols-1 row-cols-lg-3 rows-cols-xl-4 row-cols-md-2 g-4 mb-4" id='divBaia'>
 
-            </div>
-
-            <!--Filas-->
-            <div class="row mb-4">
-                <div class="col-8">
-                    <h1>Filas</h1>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-9">
-                    <table class="table" id="tableFila">
-
-                    </table>
+                <!--Filas-->
+                <div class="row mb-4">
+                    <div class="col-8">
+                        <h1>Filas</h1>
+                    </div>
                 </div>
-                <div class="col-3 d-flex">
-                    <!-- <button type="button" id="btnProximo" class="btn btn-primary">Próximo</button> -->
-                    <button type="button" id="btnCheckout" class="btn btn-primary" style="align-self: center"
-                        data-bs-toggle="modal" data-bs-target="#mdlCheckout">Check-out</button>
+
+                <div class="row">
+                    <div class="col-9">
+                        <table class="table" id="tableFila">
+
+                        </table>
+                    </div>
+                    <div class="col-3 d-flex">
+                        <!-- <button type="button" id="btnProximo" class="btn btn-primary">Próximo</button> -->
+                        <button type="button" id="btnCheckout" class="btn btn-primary" style="align-self: center"
+                            data-bs-toggle="modal" data-bs-target="#mdlCheckout">Check-out</button>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -71,30 +75,31 @@
         </div>
 
         <!-- Modal Editar Veiculo -->
-    <div class="modal fade" id="mdlEditarVeiculo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-
-        <!--Modal Checkout -->
-        <div class="modal fade" id="mdlCheckout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="mdlEditarVeiculo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content text-center">
-                    <div class="modal-header justify-content-center">
-                        <h1 class="modal-title fs-2" id="staticBackdropLabel">Selecione a Baia</h1>
-                    </div>
-                    <div class="modal-body">
-                        <select id="selectBaia" class="form-select form-select-lg mb-3"
-                            aria-label=".form-select-lg example">
-                        </select>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" id="btnLiberar" class="btn btn-primary" onclick="liberarBaia(this)">Liberar</button>
-                        <button type="button" id="btnCancelar" class="btn btn-danger"
-                            data-bs-dismiss="modal">Cancelar</button>
+
+            <!--Modal Checkout -->
+            <div class="modal fade" id="mdlCheckout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content text-center">
+                        <div class="modal-header justify-content-center">
+                            <h1 class="modal-title fs-2" id="staticBackdropLabel">Selecione a Baia</h1>
+                        </div>
+                        <div class="modal-body">
+                            <select id="selectBaia" class="form-select form-select-lg mb-3"
+                                aria-label=".form-select-lg example">
+                            </select>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" id="btnLiberar" class="btn btn-primary"
+                                onclick="liberarBaia(this)">Liberar</button>
+                            <button type="button" id="btnCancelar" class="btn btn-danger"
+                                data-bs-dismiss="modal">Cancelar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Tela de carregamento -->
