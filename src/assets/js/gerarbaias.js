@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       imgVeiculo = document.createElement('div');
       imgVeiculo.classList.add('img_veiculo');
 
-      if (response.ordemServico[i] != undefined && response.ordemServico[i].tipo == 'moto') {
+      if (response.ordemServico[i] != undefined && response.ordemServico[i].tipo == 'MOTO') {
 
         imgVeiculo.setAttribute('data-veiculo', 'moto');
 

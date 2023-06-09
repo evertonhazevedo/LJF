@@ -11,7 +11,7 @@ function preencherDadosCliente(cliente) {
   document.getElementById('iptCpfCli').setAttribute('disabled', ' ');
 
 
-  localStorage.setItem('cd_cliente_cadastrado', cliente.cd_cliente);
+  localStorage.setItem('idClienteCadastrado', cliente.cd_cliente);
 }
 
 //Função responsavel por mostrar o erro ocorrido
@@ -19,10 +19,21 @@ async function mostrarErro(codigoErro) {
 
   if (codigoErro == 1) {
 
+    
     await Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Cliente não cadastrado!'
+      text: 'Cliente não cadastrado!',
+      showDenyButton: true,
+      allowOutsideClick: false,
+      confirmButtonText: 'Cadastrar',
+      denyButtonText: 'Fechar',
+    }).then(async (result) => {
+
+      if (await result.isConfirmed) {
+        document.getElementById('iptCpfCli').removeAttribute('disabled');
+      }
+
     });
 
   } else {
@@ -67,7 +78,7 @@ function buscarClienteCadastrado(evento, valorMascara) {
 
     const options = { method: 'GET' };
 
-    fetch(baseUrl + '/buscar-cliente-e-veiculos/' + cpf, options)
+    fetch(baseUrl + '/buscar-cliente-e-veiculo/' + cpf, options)
       .then(response => response.json())
       .then(response => {
 
@@ -87,10 +98,10 @@ function buscarClienteCadastrado(evento, valorMascara) {
           // Dados para popular a tabela
           const veiculos = [];
 
-          // Percorrendo o objeto response.veiculos e atribuindo um array dentro do array veiculos
-          for (let i = 0; i < response.veiculos.length; i++) {
+          // Percorrendo o objeto response.veiculo e atribuindo um array dentro do array veiculos
+          for (let i = 0; i < response.veiculo.length; i++) {
 
-            veiculos[i] = [response.veiculos[i].cd_veiculo, response.veiculos[i].tipo, response.veiculos[i].placa, response.veiculos[i].marca, response.veiculos[i].modelo]
+            veiculos[i] = [response.veiculo[i].cd_veiculo, response.veiculo[i].tipo, response.veiculo[i].placa, response.veiculo[i].marca, response.veiculo[i].modelo]
           }
 
           // Função para criar uma Tag Ex: <tr>, <td>
@@ -130,7 +141,7 @@ function buscarClienteCadastrado(evento, valorMascara) {
             let botaoAcao = document.createElement('button');
             botaoAcao.type = 'button';
             botaoAcao.className = 'btn btn_editar_veiculo';
-            botaoAcao.setAttribute('click', "abrirMdlEditarVeiculo(this, " + "'" + veiculos[j][0] + "'," + "'" + veiculos[j][1] + "'," + "'" + veiculos[j][2] + "'," + "'" + veiculos[j][3] + "'" + "'," + "'" + veiculos[j][4] + "'" + ")");
+            botaoAcao.setAttribute('onclick', "abrirMdlEditarVeiculo(" + "'" + veiculos[j][0] + "'," + "'" + veiculos[j][1] + "'," + "'" + veiculos[j][2] + "'," + "'" + veiculos[j][3] + "'," + "'" + veiculos[j][4] + "'" + ")");
 
             let imgBotaoAcao = document.createElement('img');
             imgBotaoAcao.setAttribute('src', '../assets/icon/editar-icon.svg');

@@ -1,5 +1,5 @@
 //Função responsavel por preencher os inputs com os dados do cliente na tela de Gerar OS
-function preencherDadosCliente(cliente) {
+function preencherDadosVeiculo(cliente) {
 
   document.getElementById('inputNome').value = cliente.nome;
   document.getElementById('inputSobrenome').value = cliente.sobrenome;
@@ -56,7 +56,7 @@ document.getElementById('inputPesquisar')
 
           if (response.success == true) {
 
-            preencherDadosCliente(response.cliente);
+            preencherDadosVeiculo(response.cliente);
 
             let selectPlaca = document.getElementById('selectPlaca');
 
