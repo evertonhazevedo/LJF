@@ -23,11 +23,14 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12">
-
+          <div id="voltar">
+            <h4><a  href="buscarOS.html"><img src="../assets/icon/voltar-icon.svg" alt="Voltar">Voltar</a></h4>
+          </div>
           <!--Título e Barra de Pesquisa de OS-->
           <div id="pesquisarOS">
-            <h2>Pesquisar OS</h2>
-            <input type="text" class="form-control mb-5" id="iptPesquisarOS" maxlength="14" placeholder="Número da OS">
+           
+            <h2>Gerenciar OS</h2>
+            <h2 >OS: <label id="numeroOS">01</label></h2>
           </div>
 
           <!-- Formulário com os dados do cliente -->
@@ -73,7 +76,7 @@
             </div>
 
             <div class="col-md-12">
-              <div class="table-responsive">
+              <div class="table-responsive tblServicoGerOS">
                 <table class="table" id="tblGerenciarOS">
                   <thead>
                     <th>Nome</th>
@@ -119,8 +122,8 @@
           </div>
           <h1 id="ttlValorTotal">VALOR TOTAL</h1>
           <p id="valorTotal">R$ 50,00</p>
-          <button type="button" id="btnPagarOS" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#mdlPagamento">PAGAR</button>
+          <button type="button" id="btnSalvarOS" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#mdlPagamento">SALVAR</button>
         </div>
       </div>
     </div>
@@ -135,9 +138,8 @@
 
     </div>
 
-    <!-- Modal Cadastrar baia-->
+     <!-- Modal Pagamento -->
     <div class="modal fade" id="mdlPagamento" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
-      <!-- Modal Pagamento -->
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">

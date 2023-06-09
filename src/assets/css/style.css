@@ -121,7 +121,7 @@ a {
 }
 
 .ljf_logo {
-    width: 100%;
+    width: 95%;
 }
 
 /* Modal Cadastro de Clientes e Veículos */
@@ -211,6 +211,7 @@ a {
 
 }
 
+
 /* Tela de Carregamento */
 
 #preloader {
@@ -248,3 +249,22 @@ a {
 div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
     background-color: #1B56ED !important;
 }
+
+/* Tabelas */
+
+.tblServicos, .tblServicoGerOS {
+    height: 205px;
+    overflow-y: scroll;
+}
+
+.tblVeiculos{
+    height: 230px;
+    overflow-y: scroll;
+}
+
+.tblBaia{
+    height: 345px;
+    overflow-y: scroll;
+}
+
+
