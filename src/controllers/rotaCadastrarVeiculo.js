@@ -17,7 +17,7 @@ async function cadastrarVeiculo(req, res) {
   if (veiculo != null) {
     return res.status(400).json({
       success: false,
-      codigo: 01,
+      codigo: '01',
       mensagem: 'Veículo já cadastrado'
     });
 
@@ -44,7 +44,7 @@ async function cadastrarVeiculo(req, res) {
     }).catch(function (error) {
       return res.status(400).json({
         success: false,
-        codigo: 02,
+        codigo: '02',
         message: 'Não foi possível cadastrar o veículo' + error.message
 
       });

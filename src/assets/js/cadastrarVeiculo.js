@@ -65,7 +65,7 @@ async function cadastrarVeiculo() {
           window.location.reload(true);
 
         } else {
-          if (response.codigo == 01) {
+          if (response.codigo == '01') {
             await Swal.fire({
               icon: 'error',
               title: 'Oops...',

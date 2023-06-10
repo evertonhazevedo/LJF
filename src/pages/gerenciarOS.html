@@ -25,9 +25,9 @@
         <div class="col-lg-8 col-md-12">
           <!--Título e Barra de Pesquisa de OS-->
           <div id="pesquisarOS">
-           
+
             <h2>Gerenciar OS</h2>
-            <h2 >OS: <label id="numeroOS">01</label></h2>
+            <h2>OS: <label id="numeroOS">01</label></h2>
           </div>
 
           <!-- Formulário com os dados do cliente -->
@@ -137,9 +137,10 @@
 
     <!-- Modal Editar Veiculo -->
     <div class="modal fade" id="mdlEditarVeiculo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-aria-labelledby="staticBackdropLabel" aria-hidden="true">
-
-     <!-- Modal Pagamento -->
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    </div>
+    
+    <!-- Modal Pagamento -->
     <div class="modal fade" id="mdlPagamento" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -154,7 +155,8 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div id="formasPagamento" class="mb-5">
               <div class="row">
                 <div class="col-2">
-                  <label for="iptDinheiro"><img id="iconDinheiro" src="../assets/icon/dinheiro-icon.svg" alt="Dinheiro"></label>
+                  <label for="iptDinheiro"><img id="iconDinheiro" src="../assets/icon/dinheiro-icon.svg"
+                      alt="Dinheiro"></label>
                   <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptDinheiro" checked>
                   </div>
                 </div>
@@ -163,7 +165,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptVisa"></div>
                 </div>
                 <div class="col-2">
-                 <label for="iptMastercard"> <img src="../assets/icon/mastercard-icon.svg" alt="Mastercard"></label>
+                  <label for="iptMastercard"> <img src="../assets/icon/mastercard-icon.svg" alt="Mastercard"></label>
                   <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptMastercard"></div>
                 </div>
                 <div class="col-2">
@@ -216,6 +218,9 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <script src="/src/assets/js/mascaras.js"></script>
   <script src="/src/assets/js/cadastrarCliente.js"></script>
   <script src="/src/assets/js/cadastrarVeiculo.js"></script>
+  <script src="/src/assets/js/deletarCliente.js"></script>
+  <script src="/src/assets/js/deletarVeiculo.js"></script>
+  <script src="/src/assets/js/editarVeiculo.js"></script>
   <script src="/src/assets/js/validarCampos.js"></script>
   <script src="/src/assets/js/funcoesContadorRegressivo.js"></script>
   <script src="/src/assets/js/contadorRegressivoTodasPaginas.js"></script>

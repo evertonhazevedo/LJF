@@ -23,6 +23,7 @@ const liberarBaia = require('../controllers/rotaLiberarBaia');
 const preencherSelectBaias = require('../controllers/rotaPreencherSelectBaias');
 const enviarMensagemAtraso = require('../controllers/rotaEnviarMensagemAtraso');
 const salvarNovaPrevisao = require('../controllers/rotaSalvarNovaPrevisao');
+const editarVeiculo = require('../controllers/rotaEditarVeiculo');
 
 
 //rota que chama a funcao cadastrarCliente
@@ -48,6 +49,9 @@ router.put('/liberar-baia', liberarBaia);
 
 //rota que chama a funcao salvarNovaPrevisao
 router.put('/salvar-nova-previsao', salvarNovaPrevisao);
+
+//rota que chama a funcao editarVeiculo
+router.put('/editar-veiculo', editarVeiculo);
 
 //rota que chama a funcao deletarFuncionario
 router.delete('/deletar-funcionario', deletarFuncionario);

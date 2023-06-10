@@ -1,5 +1,6 @@
 // importacao da tabela cliente
 const tabelaCliente = require("../migrations/cliente");
+const tabelaVeiculos = require("../migrations/veiculos");
 
 //Criando funcao para deletar cliente
 async function deletarCliente(req, res) {
@@ -17,30 +18,51 @@ async function deletarCliente(req, res) {
   if (cliente == null) {
     return res.status(400).json({
       success: false,
-      codigo: 01,
+      codigo: '01',
       mensagem: 'Cliente não encontrado'
     });
 
   } else {
 
     //deletando cliente na tabela cliente
-    await tabelaCliente.destroy({
+    await tabelaVeiculos.destroy({
       where: {
-        cpf: dados.cpf
+        cd_cliente: cliente.cd_cliente
       }
       //cliente deletado com sucesso
     }).then(async function () {
-      return res.status(200).json({
-        success: true,
-        mensagem: 'Cliente deletado'
+
+      //deletando cliente na tabela cliente
+      await tabelaCliente.destroy({
+        where: {
+          cpf: dados.cpf
+        }
+        //cliente deletado com sucesso
+      }).then(async function () {
+
+        return res.status(200).json({
+          success: true,
+          mensagem: 'Cliente deletado'
+        });
+
+        //erro ao deletar
+      }).catch(async function (error) {
+
+        return res.status(400).json({
+          success: false,
+          codigo: '02',
+          message: 'Não foi possível deletar o cliente' + error.message
+
+        });
       });
 
       //erro ao deletar
     }).catch(async function (error) {
+
       return res.status(400).json({
         success: false,
-        codigo: 02,
-        message: 'Não foi possível deletar o cliente' + error.message
+        codigo: '01',
+        message: 'Não foi possível deletar os veículos do cliente' + error.message
 
       });
     });

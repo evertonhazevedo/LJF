@@ -15,11 +15,40 @@ async function cadastrarCliente(req, res) {
   });
 
   if (cliente != null) {
-    return res.status(400).json({
-      success: false,
-      codigo: 01,
-      mensagem: 'Cliente já cadastrado'
-    });
+
+    //Atualizando cliente
+    await tabelaCliente.update({
+
+      cpf: dados.cpf,
+      nome: dados.nome,
+      sobrenome: dados.sobrenome,
+      telefone: dados.telefone,
+      email: dados.email
+    },
+      {
+        where: {
+          cpf: dados.cpf
+        }
+
+        //cliente atualizado com sucesso
+      }).then(function (cliente) {
+
+        return res.status(200).json({
+          success: true,
+          cliente: cliente,
+          atualizado: true,
+          message: 'Cliente Aualizado'
+        });
+
+      }).catch(function (error) {
+
+        return res.status(400).json({
+          success: false,
+          codigo: '01',
+          message: 'Erro ao atualizar o cliente. Motivo: ' + error
+        });
+
+      })
 
   } else {
 
@@ -36,15 +65,16 @@ async function cadastrarCliente(req, res) {
     }).then(function (cliente) {
       return res.status(200).json({
         success: true,
+        atualizado: false,
         cliente: cliente,
-        mensagem: 'Cliente cadastrado'
+        message: 'Cliente cadastrado'
       });
 
       //erro ao cadastrar
     }).catch(function (error) {
       return res.status(400).json({
         success: false,
-        codigo: 02,
+        codigo: '02',
         message: 'nao foi possivel cadastrar o cliente' + error.message
 
       });
