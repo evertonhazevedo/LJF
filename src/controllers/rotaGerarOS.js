@@ -89,7 +89,7 @@ async function gerarOS(req, res) {
               }).catch(function (error) {
                 return res.status(400).json({
                   success: false,
-                  codigo: 04,
+                  codigo: '04',
                   message: 'Nao foi possível atualizar a baia. Motivo: ' + error.message
                 });
               })
@@ -98,7 +98,7 @@ async function gerarOS(req, res) {
 
             return res.status(400).json({
               success: false,
-              codigo: 03,
+              codigo: '03',
               message: 'Nao foi possível inserir o registro na tabela servicoOS. Motivo: ' + error.message
             });
 
@@ -107,7 +107,7 @@ async function gerarOS(req, res) {
 
           return res.status(400).json({
             success: false,
-            codigo: 02,
+            codigo: '02',
             message: 'Nao foi possível inserir o registro na tabela ordemServico. Motivo: ' + error.message
           });
 
@@ -117,7 +117,7 @@ async function gerarOS(req, res) {
 
       return res.status(400).json({
         success: false,
-        codigo: 01,
+        codigo: '01',
         message: 'Nao foi possível inserir o registro na tabela movimentação. Motivo: ' + error.message
       });
     }
@@ -214,7 +214,7 @@ async function gerarOS(req, res) {
 
               return res.status(400).json({
                 success: false,
-                codigo: 04,
+                codigo: '04',
                 message: 'Nao foi possível inserir o registro na tabela servicoOS. Motivo: ' + error.message
               });
 
@@ -224,7 +224,7 @@ async function gerarOS(req, res) {
 
             return res.status(400).json({
               success: false,
-              codigo: 03,
+              codigo: '03',
               message: 'Nao foi possível inserir o registro na tabela fila. Motivo: ' + error.message
             });
 
@@ -234,7 +234,7 @@ async function gerarOS(req, res) {
 
           return res.status(400).json({
             success: false,
-            codigo: 02,
+            codigo: '02',
             message: 'Nao foi possível inserir o registro na tabela ordemServico. Motivo: ' + error.message
           });
 
@@ -244,7 +244,7 @@ async function gerarOS(req, res) {
 
       return res.status(400).json({
         success: false,
-        codigo: 01,
+        codigo: '01',
         message: 'Nao foi possível inserir o registro na tabela movimentação. Motivo: ' + error.message
       });
     }

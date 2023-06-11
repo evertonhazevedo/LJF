@@ -36,115 +36,21 @@ function mascaraReal(event) {
   valor = valor + '';
   valor = parseInt(valor.replace(/[\D]+/g, ''));
   valor = valor + '';
-  valor = valor.replace(/([0-9]{2})$/g, ",$1");
+  valor = valor.replace(/([0-9]{2})$/g, ".$1");
 
   if (valor.length > 6) {
       valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
   }
 
-  elemento.value = valor;
-  if(valor == 'NaN') elemento.value = '';
+  if (!valor.startsWith('R$')) {
+
+    elemento.value = `R$ ${valor}`;
+
+  }else{
+
+    elemento.value = valor;
+
+  }
+
+  if(valor == 'NaN') elemento.value = 'R$';
 }
-
-// /*Função responsavel por recuperar os dados do cliente e os veiculos vinculados à ele na base 
-// de acordo com o cpf informado para montar o campo placa, é chamada após pressionar a tecla enter*/
-// document.getElementById('iptPesquisarCliente')
-//   .addEventListener('keypress', function (evento) {
-
-//     if (evento.key === 'Enter') {
-
-//       var baseUrl = localStorage.getItem('baseUrl');
-
-//       let cpfCompleto = document.getElementById('iptCpfCli').value;
-//       let cpfSemPonto = cpfCompleto.replace('.', '');
-//       let cnpfSemPonto1 = cpfSemPonto.replace('.', '');
-//       let cpf = cnpfSemPonto1.replace('-', '');
-
-//       const options = { method: 'GET' };
-
-//       fetch(baseUrl + '/buscar-cliente-e-veiculo/' + cpf, options)
-//         .then(response => response.json())
-//         .then(response => {
-
-//           if (response.success == true) {
-
-//             preencherDadosVeiculo(response.cliente);
-
-//             let selectPlaca = document.getElementById('selectPlaca');
-
-//             selectPlaca.length = 0;
-
-//             let optionPadrao = document.createElement('option');
-//             optionPadrao.innerHTML = 'Escolha um veículo';
-//             selectPlaca.appendChild(optionPadrao);
-
-//             response.veiculo.forEach(element => {
-
-//               let optionPlaca = document.createElement('option');
-//               optionPlaca.innerHTML = element.placa;
-//               optionPlaca.value = element.placa;
-//               selectPlaca.appendChild(optionPlaca);
-
-//             });
-
-//           } else {
-
-//             mostrarErro(response.codigo);
-
-//           }
-
-//         })
-//         .catch(err => console.error(err));
-//     }
-
-// /*Função responsavel por recuperar os dados do cliente e os veiculos vinculados à ele na base 
-// de acordo com o cpf informado para montar o campo placa, é chamada após pressionar a tecla enter*/
-// document.getElementById('iptPesquisarCliente')
-//   .addEventListener('keypress', function (evento) {
-
-//     if (evento.key === 'Enter') {
-
-//       var baseUrl = localStorage.getItem('baseUrl');
-
-//       let cpfCompleto = document.getElementById('iptCpfCli').value;
-//       let cpfSemPonto = cpfCompleto.replace('.', '');
-//       let cnpfSemPonto1 = cpfSemPonto.replace('.', '');
-//       let cpf = cnpfSemPonto1.replace('-', '');
-
-//       const options = { method: 'GET' };
-
-//       fetch(baseUrl + '/buscar-cliente-e-veiculo/' + cpf, options)
-//         .then(response => response.json())
-//         .then(response => {
-
-//           if (response.success == true) {
-
-//             preencherDadosVeiculo(response.cliente);
-
-//             let selectPlaca = document.getElementById('selectPlaca');
-
-//             selectPlaca.length = 0;
-
-//             let optionPadrao = document.createElement('option');
-//             optionPadrao.innerHTML = 'Escolha um veículo';
-//             selectPlaca.appendChild(optionPadrao);
-
-//             response.veiculo.forEach(element => {
-
-//               let optionPlaca = document.createElement('option');
-//               optionPlaca.innerHTML = element.placa;
-//               optionPlaca.value = element.placa;
-//               selectPlaca.appendChild(optionPlaca);
-
-//             });
-
-//           } else {
-
-//             mostrarErro(response.codigo);
-
-//           }
-
-//         })
-//         .catch(err => console.error(err));
-//     }
-  // });

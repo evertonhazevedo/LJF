@@ -8,7 +8,7 @@ fetch(baseUrl + '/listar-fila', options)
   .then(response => response.json())
   .then(async response => {
 
-    //Caso não possua funcionários para visualizar apresenta erro e retorna para o index.
+    //Caso não possua fila para visualizar apresenta erro e retorna para o index.
     if (response.success == false) {
 
       tabelaFila.innerHTML = 
@@ -66,21 +66,12 @@ fetch(baseUrl + '/listar-fila', options)
 
         linhaBody = criarTag("tr");
 
-        // let checkboxServico = document.createElement('input');
-        // checkboxServico.type = 'checkbox';
-        // checkboxServico.className = 'form-check-input';
-        // checkboxServico.setAttribute('onchange', "somarTotalTempoValor(this, " + "'" + fila[j][1] + "'," + "'" + fila[j][2] + "'" + ")");
-
         for (let i = 0, cel = ''; i < fila[j].length; i++) {
           cel = criarCelula("td", fila[j][i]);
           linhaBody.appendChild(cel);
-          // checkboxServico.setAttribute('value', fila[j][0]);
-          // checkboxServico.setAttribute('id', 'chk' + fila[j][0]);
         }
 
         //Criando mais uma celula no final da linha e adicionando o Gerenciar Usuário
-        // let servico = linhaBody.insertCell();
-        // servico.appendChild(checkboxServico);
         tbody.appendChild(linhaBody);
 
       }
@@ -89,39 +80,6 @@ fetch(baseUrl + '/listar-fila', options)
       tabela.appendChild(thead);
       tabela.appendChild(tbody);
 
-
-      // // Pesquisa dinâmica
-      // document.getElementById("inputServicos").addEventListener("keyup", function () {
-
-      //   let tbody = document.querySelector('tbody')
-      //   let busca = document.getElementById("inputServicos").value.toLowerCase();
-
-      //   // Percorrendo as linhas do body para encontrar um valor
-      //   for (let i = 0; i < tbody.childNodes.length; i++) {
-
-      //     let achou = false;
-      //     let tr = tbody.childNodes[i];
-      //     let td = tr.childNodes;
-
-      //     // Percorrendo as colunas do body para encontrar um valor
-      //     for (let j = 0; j < 3; j++) {
-      //       let value = td[j].childNodes[0].nodeValue.toLowerCase();
-
-      //       if (value.indexOf(busca) >= 0) {
-      //         achou = true;
-      //       }
-      //     }
-
-      //     // Se encontrar, adicionar a classe "table-row" para exibir as linhas da pesquisa
-      //     if (achou) {
-      //       tr.style.display = "table-row";
-      //     }
-      //     // Se não encontrar, adicionar a classe "none" para esconder as linhas
-      //     else {
-      //       tr.style.display = "none";
-      //     }
-      //   }
-      // })
     }
   })
   .catch(err => console.error(err));

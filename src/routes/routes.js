@@ -24,6 +24,8 @@ const preencherSelectBaias = require('../controllers/rotaPreencherSelectBaias');
 const enviarMensagemAtraso = require('../controllers/rotaEnviarMensagemAtraso');
 const salvarNovaPrevisao = require('../controllers/rotaSalvarNovaPrevisao');
 const editarVeiculo = require('../controllers/rotaEditarVeiculo');
+const buscarTodasOS = require('../controllers/rotaBuscarTodasOS');
+const realizarPagamento = require('../controllers/rotaRealizarPagamento');
 
 
 //rota que chama a funcao cadastrarCliente
@@ -53,6 +55,9 @@ router.put('/salvar-nova-previsao', salvarNovaPrevisao);
 //rota que chama a funcao editarVeiculo
 router.put('/editar-veiculo', editarVeiculo);
 
+//rota que chama a funcao realizarPagamento
+router.put('/realizar-pagamento', realizarPagamento);
+
 //rota que chama a funcao deletarFuncionario
 router.delete('/deletar-funcionario', deletarFuncionario);
 
@@ -79,5 +84,8 @@ router.get('/recuperar-baias-os', recuperarBaiasOS);
 
 //rota que chama a funcao preencherSelectBaias
 router.get('/preencher-select-baias', preencherSelectBaias);
+
+//rota que chama a funcao buscarTodasOS
+router.get('/buscar-todas-os', buscarTodasOS);
 
 module.exports = router;
