@@ -52,6 +52,8 @@ async function mostrarErro(codigoErro) {
 de acordo com o cpf informado para montar o campo placa, é chamada após pressionar a tecla enter*/
 function buscarClienteCadastrado(evento, valorMascara) {
 
+  let tabela = document.getElementById("tblVeiculosCli");
+
   var baseUrl = localStorage.getItem('baseUrl');
 
   if (valorMascara != null) {
@@ -70,6 +72,8 @@ function buscarClienteCadastrado(evento, valorMascara) {
   }
 
   if (evento.key === 'Enter') {
+
+    tabela.innerHTML = '';
 
     let cpfCompleto = document.getElementById('iptPesquisarCliente').value;
     let cpfSemPonto = cpfCompleto.replace('.', '');
@@ -110,7 +114,7 @@ function buscarClienteCadastrado(evento, valorMascara) {
           }
 
           // Criando a tabela
-          let tabela = document.getElementById("tblVeiculosCli");
+          // let tabela = document.getElementById("tblVeiculosCli");
           let thead = criarTag("thead");
           let tbody = criarTag("tbody");
 

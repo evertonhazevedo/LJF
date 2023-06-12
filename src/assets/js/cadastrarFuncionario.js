@@ -66,7 +66,7 @@ document.getElementById('btnCadastrar')
             window.location.href = 'mapaGeral.html';
 
           } else {
-            if (response.codigo == 01) {
+            if (response.codigo == '01') {
               await Toast.fire({
                 icon: 'error',
                 title: 'Oops...',

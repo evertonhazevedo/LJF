@@ -71,9 +71,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
           // Botão ação
           let tagA = document.createElement('a');
-          tagA.setAttribute('href', '/src/pages/gerenciarOS.html');
+          tagA.setAttribute('href', `/src/pages/gerenciarOS.html?ordemServico=` + response.os[j].cd_ordem_servico);
           tagA.setAttribute('target', '_blank');
-          // tagA.setAttribute('onclick', "setarValoresGerenciarOS(" + "'" + response.os[j].valor_total + "'," + "'" + response.os[j].cd_ordem_servico + "'," + "'" + response.os[j].vl_pago + "'," + "'" + response.os[j].troco + "'" + ")");
 
           let btnAcao = document.createElement('button');
           btnAcao.type = 'button';
@@ -188,8 +187,8 @@ function setarValorTotal(valorTotal, ordemServico, vl_pago, troco) {
 
   } else {
 
-    document.getElementById('iptTroco').value = 'R$ ' + troco;//parseFloat(troco).toFixed(2);
-    document.getElementById('iptValorPago').value = 'R$ ' + vl_pago;//parseFloat(vl_pago).toFixed(2);
+    document.getElementById('iptTroco').value = 'R$ ' + troco;
+    document.getElementById('iptValorPago').value = 'R$ ' + vl_pago;
     document.getElementById('iptValorPago').setAttribute('disabled', ' ');
     document.getElementById('btnFinalizar').setAttribute('disabled', ' ');
     document.getElementById('btnFinalizar').innerHTML = 'PAGA';

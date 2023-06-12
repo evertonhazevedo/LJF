@@ -26,85 +26,56 @@
           <!--Título e Barra de Pesquisa de OS-->
           <div id="pesquisarOS">
 
-            <h2>Gerenciar OS</h2>
-            <h2>OS: <label id="numeroOS">01</label></h2>
+            <h2>Gerenciar OS: <label id="numeroOS"></label></h2>
+
           </div>
 
           <!-- Formulário com os dados do cliente -->
           <form id="dados_cliente" class="row align-items-center g-3">
             <div class="col-md-6">
               <label for="inputNome" class="form-label">Nome</label>
-              <input type="text" class="form-control input" id="inputNome" disabled>
+              <input type="text" class="form-control input" id="inputNomeGerenciarOS" disabled>
             </div>
             <div class="col-md-6">
               <label for="inputSobrenome" class="form-label">Sobrenome</label>
-              <input type="text" class="form-control input" id="inputSobrenome" disabled>
+              <input type="text" class="form-control input" id="inputSobrenomeGerenciarOS" disabled>
             </div>
             <div class="col-md-6">
               <label for="inputEmail" class="form-label">Email</label>
-              <input type="email" class="form-control input" id="inputEmail" disabled>
+              <input type="email" class="form-control input" id="inputEmailGerenciarOS" disabled>
             </div>
             <div class="col-md-6">
               <label for="inputCpf" class="form-label">Telefone</label>
-              <input type="text" class="form-control input" id="inputTelefone" disabled>
+              <input type="text" class="form-control input" id="inputTelefoneGerenciarOS" disabled>
             </div>
 
             <div class="col-md-4">
               <label for="inputPlaca" class="form-label">Placa</label>
-              <select type="text" class="form-control input" id="selectPlaca"
-                onchange="buscarInfoVeiculo(this)"></select>
+              <select type="text" class="form-control input" id="selectPlacaGerenciarOS"
+                onchange="buscarInfoVeiculoGerenciarOS(this)" maxlength="7"></select>
             </div>
             <div class="col-md-4">
               <label for="inputMarca" class="form-label">Marca</label>
-              <input type="text" class="form-control input" id="inputMarca" disabled>
+              <input type="text" class="form-control input" id="inputMarcaGerenciarOS" disabled>
             </div>
 
             <div class="col-md-4">
               <label for="inputModelo" class="form-label">Modelo</label>
-              <input type="text" class="form-control input" id="inputModelo" disabled>
+              <input type="text" class="form-control input" id="inputModeloGerenciarOS" disabled>
             </div>
 
             <div class="col-md-12">
-              <label for="iptGerenciarOS" class="form-label">Serviços</label>
+              <label for="inputServicosGerenciarOS" class="form-label">Serviços</label>
               <div class="input-group pesquisar_servicos">
-                <input type="search" class="form-control input" id="iptGerenciarOS">
+                <input type="search" class="form-control input" id="inputServicosGerenciarOS">
                 <span class="input-group-text" id="basic-addon1"><img src="../assets/icon/pesquisar-icon.svg"></span>
               </div>
             </div>
 
             <div class="col-md-12">
               <div class="table-responsive tblServicoGerOS">
-                <table class="table text-center" id="tblGerenciarOS">
-                  <thead>
-                    <th>Nome</th>
-                    <th>Valor</th>
-                    <th>Tempo</th>
-                    <th>✓</th>
-                  </thead>
+                <table class="table" id="tableServicosGerenciarOS">
 
-                  <tbody>
-                    <tr>
-                      <td>Lavagem</td>
-                      <td>25,00</td>
-                      <td>25 min</td>
-                      <td><input type="checkbox" class="form-check-input" checked></td>
-                    </tr>
-
-                    <tr>
-                      <td>Aspiração</td>
-                      <td>25,00</td>
-                      <td>25 min</td>
-                      <td><input type="checkbox" class="form-check-input" checked></td>
-                    </tr>
-
-                    <tr>
-                      <td>Polimento</td>
-                      <td>50,00</td>
-                      <td>25 min</td>
-                      <td><input type="checkbox" class="form-check-input"></td>
-                    </tr>
-
-                  </tbody>
                 </table>
               </div>
             </div>
@@ -114,13 +85,12 @@
         <div class="col-lg-4 col-md-12 ps-4">
           <img src="../assets/img/LJF-LOGO-TRANSP.png" class="ljf_logo" alt="Lava Jato FICR Logo">
           <div id="previsao">
-            <p>Previsão: <img src="../assets/icon/relogio.svg" alt="relógio"> <label id="previsaoTotal">0
+            <p>Previsão: <img src="../assets/icon/relogio.svg" alt="relógio"> <label id="previsaoTotalGerenciarOS">0
                 Minutos</label></p>
           </div>
           <h1 id="ttlValorTotal">VALOR TOTAL</h1>
-          <p id="valorTotal">R$ 50,00</p>
-          <button type="button" id="btnSalvarOS" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#mdlPagamento">SALVAR</button>
+          <p id="valorTotalGerenciarOS">R$ 0.00</p>
+          <button type="button" id="btnSalvarOS" class="btn btn-primary">SALVAR</button>
         </div>
       </div>
     </div>
@@ -139,69 +109,34 @@
     <div class="modal fade" id="mdlEditarVeiculo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
     </div>
-    
-    <!-- Modal Pagamento -->
-    <div class="modal fade" id="mdlPagamento" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title titulo_padrao fs-2" id="modalTitulo">Pagamento da OS</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="col-12">
-              <h5>Formas de Pagamento</h5>
-            </div>
-            <div id="formasPagamento" class="mb-5">
-              <div class="row">
-                <div class="col-2">
-                  <label for="iptDinheiro"><img id="iconDinheiro" src="../assets/icon/dinheiro-icon.svg"
-                      alt="Dinheiro"></label>
-                  <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptDinheiro" checked>
-                  </div>
-                </div>
-                <div class="col-2">
-                  <label for="iptVisa"><img src="../assets/icon/visa-icon.svg" alt="Visa"></label>
-                  <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptVisa"></div>
-                </div>
-                <div class="col-2">
-                  <label for="iptMastercard"> <img src="../assets/icon/mastercard-icon.svg" alt="Mastercard"></label>
-                  <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptMastercard"></div>
-                </div>
-                <div class="col-2">
-                  <label for="iptMaestro"><img src="../assets/icon/maestro-icon.svg" alt="Maestro"></label>
-                  <div><input class="form-check-input" type="radio" name="iptRadioPagamento" id="iptMaestro"></div>
-                </div>
-              </div>
-            </div>
-            <div id="iptPagamento">
-              <div class="row mb-3">
-                <div class="col-5">
-                  <h2>Valor Total</h2>
-                  <input id="iptValorTotal" type="text" class="form-control" value="R$ 100,00" disabled>
-                </div>
-                <div class="col-5">
-                  <h2>Troco</h2>
-                  <input id="iptTroco" type="text" class="form-control" value="R$ 50,00" disabled>
-                </div>
-              </div>
-
-              <div class="row align-items-end">
-                <div class="col-5">
-                  <h2 id="valorPago">Valor Pago</h2>
-                  <input id="iptValorPago" class="form-control" type="text">
-                </div>
-                <div class="col-5">
-                  <button type="button" class="btn btn-primary">Finalizar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
   </section>
+
+
+  <!-- Tela de carregamento -->
+  <div id="preloader">
+    <img class="loader-icon" src="../assets/icon/loader-icon.gif">
+  </div>
+
+  <!-- Script de Preloader -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var preloader = document.getElementById('preloader');
+
+      setTimeout(function () {
+
+        preloader.style.opacity = 0;
+
+      }, 500);
+
+      setTimeout(function () {
+
+        preloader.style.display = 'none';
+
+      }, 1000);
+
+    });
+  </script>
 
   <!--Importacao javascript-->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -210,11 +145,10 @@
     crossorigin="anonymous"></script>
   <script src="../assets/js/menu.js"></script>
   <script src="../assets/js/deslogarFuncionario.js"></script>
-  <script src="../assets/js/listarServicos.js"></script>
+  <script src="../assets/js/listarServicosGerenciarOS.js"></script>
   <script src="/src/assets/js/baseUrl.js"></script>
-  <script src="/src/assets/js/somarTotalTempoValor.js"></script>
   <script src="/src/assets/js/buscarClienteCadastrado.js"></script>
-  <script src="/src/assets/js/buscarInfoVeiculo.js"></script>
+  <script src="/src/assets/js/buscarInfoVeiculoGerenciarOS.js"></script>
   <script src="/src/assets/js/mascaras.js"></script>
   <script src="/src/assets/js/cadastrarCliente.js"></script>
   <script src="/src/assets/js/cadastrarVeiculo.js"></script>
@@ -225,6 +159,9 @@
   <script src="/src/assets/js/funcoesContadorRegressivo.js"></script>
   <script src="/src/assets/js/contadorRegressivoTodasPaginas.js"></script>
   <script src="../assets/js/liberarBaia.js"></script>
+  <script src="../assets/js/setarDadosGerenciarOS.js"></script>
+  <script src="../assets/js/somarTotalTempoValorGerenciarOS.js"></script>
+  <script src="../assets/js/editarOS.js"></script>
 
   <!-- Modais -->
   <script src="../assets/js/mdlClienteVeiculo.js"></script>

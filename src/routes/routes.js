@@ -26,6 +26,8 @@ const salvarNovaPrevisao = require('../controllers/rotaSalvarNovaPrevisao');
 const editarVeiculo = require('../controllers/rotaEditarVeiculo');
 const buscarTodasOS = require('../controllers/rotaBuscarTodasOS');
 const realizarPagamento = require('../controllers/rotaRealizarPagamento');
+const buscarDadosGerenciarOS = require('../controllers/rotaBuscarDadosGerenciarOS');
+const editarOS = require('../controllers/rotaEditarOS');
 
 
 //rota que chama a funcao cadastrarCliente
@@ -58,6 +60,9 @@ router.put('/editar-veiculo', editarVeiculo);
 //rota que chama a funcao realizarPagamento
 router.put('/realizar-pagamento', realizarPagamento);
 
+//rota que chama a funcao editarOS
+router.put('/editar-os', editarOS);
+
 //rota que chama a funcao deletarFuncionario
 router.delete('/deletar-funcionario', deletarFuncionario);
 
@@ -87,5 +92,8 @@ router.get('/preencher-select-baias', preencherSelectBaias);
 
 //rota que chama a funcao buscarTodasOS
 router.get('/buscar-todas-os', buscarTodasOS);
+
+//rota que chama a funcao buscarDadosGerenciarOS
+router.get('/buscar-dados-gerenciarOS/:ordemServico', buscarDadosGerenciarOS);
 
 module.exports = router;

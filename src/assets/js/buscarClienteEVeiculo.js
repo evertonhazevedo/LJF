@@ -74,6 +74,7 @@ document.getElementById('inputPesquisar')
               selectPlaca.appendChild(optionPlaca);
 
             });
+            
 
           } else {
 
