@@ -6,6 +6,7 @@ const { eAdmin } = require('../../middlewares/auth');
 const { novaPrevisao } = require('../../middlewares/salvarNovaPrevisao');
 
 // importacoes das funcoes executada em cada rota
+const cadastrarBaia = require('../controllers/rotaCadastrarBaia');
 const cadastrarCliente = require('../controllers/rotaCadastrarCliente');
 const cadastrarFuncionario = require('../controllers/rotaCadastrarFuncionario');
 const cadastrarVeiculo = require('../controllers/rotaCadastrarVeiculo');
@@ -24,6 +25,9 @@ const preencherSelectBaias = require('../controllers/rotaPreencherSelectBaias');
 const enviarMensagemAtraso = require('../controllers/rotaEnviarMensagemAtraso');
 const salvarNovaPrevisao = require('../controllers/rotaSalvarNovaPrevisao');
 
+
+//rota que chama a funcao cadastrarBaia
+router.post('/cadastrar-baia', cadastrarBaia);
 
 //rota que chama a funcao cadastrarCliente
 router.post('/cadastrar-cliente', cadastrarCliente);
