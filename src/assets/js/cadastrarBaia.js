@@ -34,6 +34,8 @@ async function cadastrarBaia() {
             title: 'Baia(s) cadastrada com sucesso'
           })
 
+          window.location.reload(true);
+
         } else {
           await Swal.fire({
             icon: 'error',
