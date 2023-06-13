@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lava Jato FICR | Gerenciamento de OS</title>
+  <link rel="icon" type="image/png" href="../assets/img/LJF-LOGO.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/gerenciarOS.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg menu_principal">
+
+  </nav>
+
+  <section class="gerenciarOS">
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-12">
+          <!--Título e Barra de Pesquisa de OS-->
+          <div id="pesquisarOS">
+
+            <h2>Gerenciar OS: <label id="numeroOS"></label></h2>
+
+          </div>
+
+          <!-- Formulário com os dados do cliente -->
+          <form id="dados_cliente" class="row align-items-center g-3">
+            <div class="col-md-6">
+              <label for="inputNome" class="form-label">Nome</label>
+              <input type="text" class="form-control input" id="inputNomeGerenciarOS" disabled>
+            </div>
+            <div class="col-md-6">
+              <label for="inputSobrenome" class="form-label">Sobrenome</label>
+              <input type="text" class="form-control input" id="inputSobrenomeGerenciarOS" disabled>
+            </div>
+            <div class="col-md-6">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input type="email" class="form-control input" id="inputEmailGerenciarOS" disabled>
+            </div>
+            <div class="col-md-6">
+              <label for="inputCpf" class="form-label">Telefone</label>
+              <input type="text" class="form-control input" id="inputTelefoneGerenciarOS" disabled>
+            </div>
+
+            <div class="col-md-4">
+              <label for="inputPlaca" class="form-label">Placa</label>
+              <select type="text" class="form-control input" id="selectPlacaGerenciarOS"
+                onchange="buscarInfoVeiculoGerenciarOS(this)" maxlength="7"></select>
+            </div>
+            <div class="col-md-4">
+              <label for="inputMarca" class="form-label">Marca</label>
+              <input type="text" class="form-control input" id="inputMarcaGerenciarOS" disabled>
+            </div>
+
+            <div class="col-md-4">
+              <label for="inputModelo" class="form-label">Modelo</label>
+              <input type="text" class="form-control input" id="inputModeloGerenciarOS" disabled>
+            </div>
+
+            <div class="col-md-12">
+              <label for="inputServicosGerenciarOS" class="form-label">Serviços</label>
+              <div class="input-group pesquisar_servicos">
+                <input type="search" class="form-control input" id="inputServicosGerenciarOS">
+                <span class="input-group-text" id="basic-addon1"><img src="../assets/icon/pesquisar-icon.svg"></span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="table-responsive tblServicoGerOS">
+                <table class="table" id="tableServicosGerenciarOS">
+
+                </table>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="col-lg-4 col-md-12 ps-4">
+          <img src="../assets/img/LJF-LOGO-TRANSP.png" class="ljf_logo" alt="Lava Jato FICR Logo">
+          <div id="previsao">
+            <p>Previsão: <img src="../assets/icon/relogio.svg" alt="relógio"> <label id="previsaoTotalGerenciarOS">0
+                Minutos</label></p>
+          </div>
+          <h1 id="ttlValorTotal">VALOR TOTAL</h1>
+          <p id="valorTotalGerenciarOS">R$ 0.00</p>
+          <button type="button" id="btnSalvarOS" class="btn btn-primary">SALVAR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Cadastro de Cliente-->
+    <div class="modal fade" id="mdlClienteVeiculo" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+
+    </div>
+
+    <!-- Modal Cadastrar baia-->
+    <div class="modal fade" id="mdlCadastrarBaia" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+
+    </div>
+
+    <!-- Modal Editar Veiculo -->
+    <div class="modal fade" id="mdlEditarVeiculo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    </div>
+
+  </section>
+
+
+  <!-- Tela de carregamento -->
+  <div id="preloader">
+    <img class="loader-icon" src="../assets/icon/loader-icon.gif">
+  </div>
+
+  <!-- Script de Preloader -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var preloader = document.getElementById('preloader');
+
+      setTimeout(function () {
+
+        preloader.style.opacity = 0;
+
+      }, 500);
+
+      setTimeout(function () {
+
+        preloader.style.display = 'none';
+
+      }, 1000);
+
+    });
+  </script>
+
+  <!--Importacao javascript-->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="../assets/js/menu.js"></script>
+  <script src="../assets/js/deslogarFuncionario.js"></script>
+  <script src="../assets/js/listarServicosGerenciarOS.js"></script>
+  <script src="/src/assets/js/baseUrl.js"></script>
+  <script src="/src/assets/js/buscarClienteCadastrado.js"></script>
+  <script src="/src/assets/js/buscarInfoVeiculoGerenciarOS.js"></script>
+  <script src="/src/assets/js/mascaras.js"></script>
+  <script src="/src/assets/js/cadastrarCliente.js"></script>
+  <script src="/src/assets/js/cadastrarVeiculo.js"></script>
+  <script src="/src/assets/js/deletarCliente.js"></script>
+  <script src="/src/assets/js/deletarVeiculo.js"></script>
+  <script src="/src/assets/js/editarVeiculo.js"></script>
+  <script src="/src/assets/js/validarCampos.js"></script>
+  <script src="/src/assets/js/funcoesContadorRegressivo.js"></script>
+  <script src="/src/assets/js/contadorRegressivoTodasPaginas.js"></script>
+  <script src="../assets/js/liberarBaia.js"></script>
+  <script src="../assets/js/setarDadosGerenciarOS.js"></script>
+  <script src="../assets/js/somarTotalTempoValorGerenciarOS.js"></script>
+  <script src="../assets/js/editarOS.js"></script>
+  <script src="/src/assets/js/cadastrarBaia.js"></script>
+
+  <!-- Modais -->
+  <script src="../assets/js/mdlClienteVeiculo.js"></script>
+  <script src="../assets/js/mdlCadastrarBaia.js"></script>
+  <script src="../assets/js/mdlEditarVeiculo.js"></script>
+
+</body>
+
+</html>

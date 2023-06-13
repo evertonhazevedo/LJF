@@ -1,0 +1,46 @@
+section.telaLogin {
+    background-color: #ffffff;
+}
+
+.row{
+    margin: 0;
+}
+
+.col-6 {
+    min-height: 100vh;
+}
+
+.area_login {
+    padding: 150px 150px 0px 150px;
+}
+
+.ljf_logo {
+    margin-bottom: 20px;
+}
+
+.login_titulo {
+    font-size: 2em;
+    text-align: center;
+}
+
+form#login {
+    width: 100%;
+    min-width: 300px;
+    font-size: 1.1em;
+}
+
+#link_cadastro {
+    font-size: 1em;
+
+}
+
+.wallpaper {
+    background-image: url("../img/background-carro.jpg");
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 2%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 2%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: blue;
+    
+}

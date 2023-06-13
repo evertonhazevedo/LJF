@@ -1,9 +1,10 @@
 const Sequelize = require('sequelize');
 const db = require('../models/db');
-const tabelaServico = require('./servico');
 const tabelaCliente = require('./cliente');
 const tabelaVeiculo = require('./veiculos');
-const sequelize = require('../models/db');
+const tabelaBaia = require('./baia');
+const tabelaMovimentacao = require('./movimentacao');
+const tabelaPagamento = require('./pagamento');
 
 //criando tabela Ordem de Servicos
 
@@ -14,24 +15,24 @@ const tabelaOrdemServico = db.define('ordemServico', {
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
+  },
+  
+  valor_total: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+
+  previsao: {
+    type: Sequelize.TIME,
+    allowNull: false
+  },
+
+  status: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
 
 }, { freezeTableName: true });
-
-// Relacionamento 1-1 'cd_servico':
-
-tabelaOrdemServico.belongsTo(tabelaServico, {
-  constraint: true,
-  foreignKey: 'cd_servico',
-  allowNull: false
-
-});
-
-// relacionamento 1 - vários 'cd_servico':
-
-tabelaServico.hasMany(tabelaOrdemServico, {
-  foreignKey: 'cd_servico'
-});
 
 // Relacionamento 1-1 'cd_cliente':
 
@@ -61,7 +62,54 @@ tabelaVeiculo.hasMany(tabelaOrdemServico, {
   foreignKey: 'cd_veiculo'
 });
 
+// Relacionamento 1-1:
+
+tabelaOrdemServico.belongsTo(tabelaMovimentacao, {
+  constraint: true,
+  foreignKey: 'cd_movimentacao',
+  allowNull: false
+
+});
+
+// relacionamento 1-1:
+
+tabelaMovimentacao.belongsTo(tabelaOrdemServico, {
+  foreignKey: 'cd_movimentacao'
+});
+
+// Relacionamento 1-1:
+
+tabelaOrdemServico.belongsTo(tabelaBaia, {
+  constraint: true,
+  foreignKey: 'cd_baia',
+  allowNull: false
+
+});
+
+// relacionamento 1 - vários:
+
+tabelaBaia.hasMany(tabelaOrdemServico, {
+  foreignKey: 'cd_baia'
+});
+
+// Relacionamento 1-1:
+
+tabelaOrdemServico.belongsTo(tabelaPagamento, {
+  constraint: true,
+  foreignKey: 'cd_pagamento',
+  allowNull: false
+
+});
+
+// relacionamento 1 - vários:
+
+tabelaPagamento.belongsTo(tabelaOrdemServico, {
+  foreignKey: 'cd_pagamento'
+});
+
+
 // Método para verificar se tabela já existe. Caso nao, irá criar tabela.
 
-tabelaOrdemServico.sync({ alter: true });
+tabelaOrdemServico.sync();
+
 module.exports = tabelaOrdemServico;

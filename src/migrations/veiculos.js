@@ -30,6 +30,11 @@ const tabelaVeiculo = db.define('veiculo', {
     allowNull: false
   },
 
+  tipo: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
+
 }, { freezeTableName: true });
 
 // Relacionamento 1-1:

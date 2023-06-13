@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const db = require('../models/db');
-const tabelaOrdemServico = require('./ordemServico');
 
 //criando tabela Pagamento
 
@@ -19,7 +18,17 @@ const tabelaPagamento = db.define('pagamento', {
   },
 
   valor: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(10, 2),
+    allowNull: false
+  },
+
+  vl_pago: {
+    type: Sequelize.DECIMAL(10, 2),
+    allowNull: false
+  },
+
+  troco: {
+    type: Sequelize.DECIMAL(10, 2),
     allowNull: false
   },
 
@@ -30,23 +39,8 @@ const tabelaPagamento = db.define('pagamento', {
 
 }, { freezeTableName: true });
 
-// Relacionamento 1-1:
-
-tabelaPagamento.belongsTo(tabelaOrdemServico, {
-  constraint: true,
-  foreignKey: 'cd_ordem_servico',
-  allowNull: false
-
-});
-
-// relacionamento 1 - vários:
-
-tabelaOrdemServico.hasMany(tabelaPagamento, {
-  foreignKey: 'cd_ordem_servico'
-});
-
 // Método para verificar se tabela já existe. Caso nao, irá criar tabela.
 
-tabelaPagamento.sync();
+tabelaPagamento.sync({alter:true});
 
 module.exports = tabelaPagamento;

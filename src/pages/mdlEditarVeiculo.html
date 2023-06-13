@@ -1,0 +1,41 @@
+<!--Modal Editar Veículo -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+        <div class="modal-header justify-content-center">
+            <h1 class="modal-title fs-2" id="staticBackdropLabel">Editar Veículo <label for="iptIdEdtVei" id="iptIdEdtVei"></label></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="formEditVeiculo" class="row g-3 text-start">
+
+                <div class="col-lg-3">
+                    <label for="iptTipoEdtVei" class="form-label">Tipo</label>
+                    <select type="tel" class="form-select inputsVeiculoCad" id="iptTipoVeiCad">
+                      <option value="CARRO">Carro</option>
+                      <option value="MOTO">Moto</option>
+                    </select>
+                  </div>
+        
+                  <div class="col-lg-3">
+                    <label for="iptPlacaEdtVei" class="form-label">Placa</label>
+                    <input type="tel" class="form-control inputsVeiculoCad" id="iptPlacaVeiCad" maxlength="7">
+                  </div>
+            
+                  <div class="col-lg-3">
+                    <label for="iptMarcaEdtVei" class="form-label">Marca</label>
+                    <input type="tel" class="form-control inputsVeiculoCad" id="iptMarcaCliVeiCad" maxlength="50">
+                  </div>
+            
+                  <div class="col-lg-3">
+                    <label for="iptModeloEdtVei" class="form-label">Modelo</label>
+                    <input type="tel" class="form-control inputsVeiculoCad" id="iptModeloCliVeiCad" maxlength="50">
+                  </div>
+
+            </form>
+        </div>
+        <div class="modal-footer justify-content-start">
+            <button type="button" id="btnSalvarVeiculo" class="btn btn-primary" onclick="editarVeiculo()">Salvar</button>
+            <button type="button" id="btnExcluirVeiculo" class="btn btn-danger" onclick="deletarVeiculo()">Excluir</button>
+        </div>
+    </div>
+</div>

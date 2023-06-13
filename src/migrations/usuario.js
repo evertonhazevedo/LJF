@@ -34,12 +34,17 @@ const tabelaUsuario = db.define('usuario', {
   senha: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+
+  cpf: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
 
 }, { freezeTableName: true });
 
 // Método para verificar se tabela já existe. Caso nao, irá criar tabela.
 
-tabelaUsuario.sync();
+tabelaUsuario.sync({alter: true });
 
 module.exports = tabelaUsuario;

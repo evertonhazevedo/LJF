@@ -11,3 +11,4 @@ const tabelaMovimentacao = require('../migrations/movimentacao');
 const tabelaFila = require('../migrations/fila');
 const tabelaBaia = require('../migrations/baia');
 const tabelaOrdemServico = require('../migrations/ordemServico');
+const tabelaServicoOS = require('../migrations/servicoOS');

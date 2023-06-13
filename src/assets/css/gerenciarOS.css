@@ -1,0 +1,96 @@
+#iptPesquisarOS{
+    border-width: 0px 0px 2px 0px;
+    border-radius: 0;
+    font-size: 1.5em;
+    width: 200px;
+    transition: width 400ms ease;
+}
+
+#iptPesquisarOS:focus{
+    box-shadow: none;
+    width: 250px;
+}
+
+#dados_cliente .input {
+    padding: 0.3rem 0.5rem;
+}
+
+#previsao, #valorTotal, #valorTotalGerenciarOS {
+    background-color: var(--cor-cinza);
+}
+
+p {
+    margin: 0;
+}
+
+#previsao {
+    padding: 5px 10px;
+    margin: 30px 0px 20px 0;
+    vertical-align: middle;
+    
+}
+
+#previsao img {
+    width: 30px;
+    height: 30px;
+    vertical-align: bottom;
+    margin: 0 10px;
+}
+
+#ttlValorTotal { 
+    font-size: 2.5em;
+    padding: 0px 10px;
+}
+
+#valorTotal, #valorTotalGerenciarOS {
+    font-size: 2.5em;
+    padding: 0px 10px;
+}
+
+#btnSalvarOS {
+    padding: 1rem 0.5rem;
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+#inputServicos, #inputServicosGerenciarOS {
+    border-width: 2px 0px 2px 2px;
+}
+
+.input-group-text {
+    background-color: white;
+    border: solid var(--cor-principal);
+    border-width: 2px 2px 2px 0px;
+}
+
+.input-group-text img{
+    width: 20px;
+}
+
+/* Modal Pagamento */
+
+#iconDinheiro {
+    width: 40px!important;
+}
+
+div#formasPagamento {
+    text-align: center;
+}
+
+div#formasPagamento img {
+    width: 50px;
+    height: 50px;
+}
+
+#iptPagamento input {
+    padding: 0rem 1rem;
+    font-size: 2rem;
+}
+
+#valorPago{
+    color: red;
+}
+
+#iptPagamento button {
+    padding: 1.1rem;
+}

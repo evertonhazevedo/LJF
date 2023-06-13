@@ -1,0 +1,99 @@
+.container {
+    
+}
+
+.card p {
+    margin-bottom: 0;
+}
+
+.cliente_texto label{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 70px;
+    vertical-align: middle;
+
+}
+
+.card-title {
+    color: #0C286E;
+}
+
+.card {
+    border: none;
+    max-width: 300px;
+
+}
+
+.card-body {
+    background-color: var(--cor-cinza);
+    padding: 10px;
+    border-radius: 8px 8px 0px 0px;
+    height: 142px;
+}
+
+.card_footer {
+    color: white;
+    border-radius: 0px 0px 8px 8px;
+}
+
+/* Relógio da Baia */
+
+.relogio_tempo {
+    display: inline-block;
+    font-size: 0.9rem;
+    padding: 7px 0px;
+}
+
+#relogio-icon {
+    width: 20px;
+    margin-right: 5px;
+}
+
+/* Baia ocupada */
+.card_footer[data-status='1'] {
+    background-color: var(--cor-vermelho);
+}
+
+/* Baia Livre */
+.card_footer[data-status='0'] {
+    background-color: var(--cor-verde);
+}
+
+.img_veiculo {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    min-height: 50px;
+}
+
+.img_veiculo[data-veiculo='moto'] {
+    background-image: url('../icon/moto-icon.svg');
+    max-width: 73px;
+}
+
+.img_veiculo[data-veiculo='carro'] {
+    background-image: url('../icon/carro-icon.svg');
+    max-width: 150px;
+}
+
+#btnProximo {
+    padding: 25px 50px;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-right: 10px;
+    height: 91px;
+}
+
+#btnCheckout {
+    padding: 0px 25px;
+    font-size: 1em;
+    height: 91px;
+}
+
+@media (min-width: 1440px) {
+    .row-cols-lg-3>* {
+        width: 25%!important;
+    }
+
+}

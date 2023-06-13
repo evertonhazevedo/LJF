@@ -1,0 +1,48 @@
+#btnIrPara {
+    background-color: var(--cor-principal);
+    max-width: 100px;
+    padding: 5px 10px;
+    font-weight: 500;
+}
+
+#btnIrPara img {
+    width: 20px;
+}
+
+#pagarOS {
+    cursor: pointer;
+}
+
+
+#pagarOS img {
+    width: 40px;
+}
+
+/* Modal Pagamento */
+
+#iconDinheiro {
+    width: 40px!important;
+}
+
+div#formasPagamento {
+    text-align: center;
+}
+
+div#formasPagamento img {
+    width: 50px;
+    height: 50px;
+}
+
+#iptPagamento input {
+    padding: 0rem 1rem;
+    font-size: 2rem;
+}
+
+#valorPago{
+    color: red;
+}
+
+#iptPagamento button {
+    padding: 1.1rem;
+}
+

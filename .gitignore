@@ -72,6 +72,9 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
+#launch.json
+launch.json
+
 # dotenv environment variable files
 .env
 .env.development.local

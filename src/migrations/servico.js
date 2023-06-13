@@ -18,14 +18,18 @@ const tabelaServico = db.define('servico', {
   },
 
   valor: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(10,2),
+    allowNull: false
+  },
+
+  tempo: {
+    type: Sequelize.TIME,
     allowNull: false
   }
 
 }, { freezeTableName: true });
 
 // Método para verificar se tabela já existe. Caso nao, irá criar tabela.
-
 tabelaServico.sync();
 
 module.exports = tabelaServico;

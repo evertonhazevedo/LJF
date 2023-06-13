@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Work Sans', sans-serif;
+}
+
+:root {
+    --cor-principal: #1B56ED;
+    --cor-secundaria: #0C286E;
+    --cor-botao: var(--cor-principal);
+    --cor-vermelho: #FF0000;
+    --cor-verde: #1DB505;
+    --cor-cinza: #D9D9D9;
+}
+
+body {
+    font-weight: 500;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color: var(--cor-secundaria);
+}
+section .container{
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 10px;
+    min-height: 600px;
+    margin-bottom: 50px;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--cor-botao);
+    white-space: nowrap;
+}
+
+.form-control, .form-select {
+    border: 2px solid var(--cor-principal);
+    color: var(--cor-principal) !important;
+    padding: 0.2rem 0.5rem;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.1rem rgba(13, 110, 253, .25);
+}
+
+form {
+    font-size: 1.1em;
+
+}
+
+a {
+    color: var(--cor-principal);
+    text-decoration: none;
+}
+
+.menu_principal {
+    background-color: #D9D9D9;
+    padding: 0;
+    -webkit-box-shadow: 0px 6px 30px 10px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 0px 6px 30px 10px rgba(0, 0, 0, 0.59);
+    box-shadow: 0px 2px 30px 5px rgba(0, 0, 0, 0.59);
+    margin-bottom: 50px;
+}
+
+.menu_principal .container-fluid {
+    padding: 0 !important;
+}
+
+
+#navbarSupportedContent {
+    padding: 0 40px 0 0;
+
+}
+
+.menu_principal li {
+    background-color: var(--cor-principal);
+    margin: 0px 1px;
+    width: 130px;
+    height: 80px;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.menu_principal img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.menu_principal a {
+    color: white;
+}
+
+.menu_principal .active {
+    color: white !important;
+}
+
+.menu_principal #relogio {
+    font-size: 3.5em;
+    padding: 0px 20px;
+    color: var(--cor-principal);
+}
+
+.menu_principal .data_operador p {
+    margin-bottom: 0;
+    color: var(--cor-principal);
+}
+
+.ljf_logo {
+    width: 95%;
+    min-width: 350px;
+}
+
+/* Modal Cadastro de Clientes e Veículos */
+
+#mdlClienteVeiculo .modal-body {
+    padding: 0 20px;
+}
+
+#mdlClienteVeiculo .modal-dialog {
+    max-width: 700px;
+
+}
+
+#mdlClienteVeiculo .modal-content {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#mdlClienteVeiculo .titulo_padrao {
+    font-size: 1em;
+}
+
+#mdlClienteVeiculo .modal-footer .btn {
+    width: 100px;
+    height: 40px;
+    padding: 0.5em;
+
+}
+
+#formCadCliente,
+#formCadBaia {
+    --bs-gutter-y: 0.5rem;
+
+}
+
+.btn-cadastrar {
+    border: none;
+    padding: 0.35rem 0.3rem;
+
+    margin-top: 35px;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn_editar_veiculo img {
+    width: 25px;
+}
+
+#iptPesquisarCliente,
+#iptQtdBaia {
+    border-width: 0px 0px 2px 0px;
+    border-radius: 0;
+    font-size: 1.5em;
+    width: 250px;
+    transition: width 400ms ease;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#iptPesquisarCliente:focus,
+#iptQtdBaia:focus {
+    box-shadow: none;
+    width: 280px;
+}
+
+/* Modal Cadastro de Baias */
+#mdlCadastrarBaia .modal-body {
+    padding: 0 20px;
+}
+
+#mdlCadastrarBaia .modal-dialog {
+    max-width: 550px;
+
+}
+
+#mdlCadastrarBaia .modal-content {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#mdlCadastrarBaia .titulo_padrao {
+    font-size: 1em;
+}
+
+.modal-footer .btn {
+    width: 100px;
+    height: 40px;
+    padding: 0.5em;
+
+}
+
+
+/* Tela de Carregamento */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    text-align: center;
+}
+
+#preloader img {
+    margin-top: 40vh;
+}
+
+.pesquisar_servicos input {
+    border-width: 2px 0px 2px 2px;
+}
+
+.input-group-text {
+    background-color: white;
+    border: solid var(--cor-principal);
+    border-width: 2px 2px 2px 0px;
+}
+
+.input-group-text img {
+    width: 20px;
+}
+
+/* cor do botao liberar baia */
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+    background-color: #1B56ED !important;
+}
+
+/* Tabelas */
+
+.tblServicos, .tblServicoGerOS {
+    height: 205px;
+    overflow-y: scroll;
+}
+
+.tblVeiculos{
+    max-height: 230px;
+    overflow-y: scroll;
+}
+
+.tblBaia{
+    height: 345px;
+    overflow-y: scroll;
+}
+
+.modal:nth-of-type(even) {
+    z-index: 1055 !important;
+}
+.modal-backdrop.in:nth-of-type(even) {
+    z-index: 1050 !important;
+}
+
