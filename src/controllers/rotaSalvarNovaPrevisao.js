@@ -22,7 +22,6 @@ async function salvarNovaPrevisao(req, res) {
       });
   }
 
-  console.log('OS: ' + ordemServicoAtualizada);
   if (ordemServicoAtualizada == true) {
 
     try {

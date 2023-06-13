@@ -79,8 +79,6 @@ document.getElementById('btnSalvarOS')
         .then(response => response.json())
         .then(async response => {
 
-          console.log(response)
-
           if(response.success == true){
 
             await Swal.fire({

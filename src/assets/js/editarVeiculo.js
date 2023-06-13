@@ -31,7 +31,7 @@ async function editarVeiculo() {
     fetch(baseUrl + '/editar-veiculo', options)
       .then(response => response.json())
       .then(async response => {
-        console.log(response)
+
         if(response.success == true){
 
           await Swal.fire({

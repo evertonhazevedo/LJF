@@ -32,7 +32,6 @@ document.getElementById('btnDeslogar')
         fetch(baseUrl + '/salvar-nova-previsao', options)
             .then(response => response.json())
             .then(async response => {
-                console.log(response)
 
                 const Toast = Swal.mixin({
                     toast: true,

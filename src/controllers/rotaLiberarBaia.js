@@ -145,7 +145,7 @@ async function liberarBaia(req, res) {
                           to: 'whatsapp:+55' + body.whatsapp
 
                         }).then(function (mensagem) {
-                          console.log('entrei: ' + process.env.TWILIO_WHATS_APP);
+
                           return res.status(200).json({
                             success: true,
                             primeiroFila: primeiroFila,

@@ -99,7 +99,6 @@ function timer(tempo, baia, os, nome, telefone) {
               .then(response => response.json())
               .then(async response => {
 
-                console.log(response)
                 if (response.success == true) {
 
                   timer(tempo, baia, os, nome, telefone);

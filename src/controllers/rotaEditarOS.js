@@ -41,7 +41,7 @@ async function editarOS(req, res) {
           if (servicoExistente == '') {
 
             //insere na tabela de servicoOS com o cd_servico correspondente
-           await tabelaServicoOS.create({
+            await tabelaServicoOS.create({
 
               cd_ordem_servico: body.cd_ordem_servico,
               cd_servico: servico.cd_servico
@@ -50,7 +50,24 @@ async function editarOS(req, res) {
           }
 
         }
-      })
+      });
+
+      // Busca todos os serviços existentes no banco de dados
+      const servicosBanco = await tabelaServico.findAll();
+
+      // Percorre os serviços do banco de dados
+      for (const servicoCadastrado of servicosBanco) {
+        // Verifica se o serviço não está presente na requisição
+        if (!body.servico.includes(servicoCadastrado.nm_servico)) {
+          // Remove o serviço da tabela servicoOS
+          await tabelaServicoOS.destroy({
+            where: {
+              cd_ordem_servico: body.cd_ordem_servico,
+              cd_servico: servicoCadastrado.cd_servico
+            }
+          });
+        }
+      }
 
       return res.status(200).json({
         success: true

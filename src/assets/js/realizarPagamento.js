@@ -7,7 +7,7 @@ document.getElementById('iptValorPago')
 
     // Calcular o troco
     let troco = valorPago - valorTotal;
-console.log(troco)
+
     if (isNaN(troco)) {
       document.getElementById('iptTroco').value = 'R$ 0.00'
     }
@@ -44,10 +44,6 @@ document.getElementById('btnFinalizar')
     let valor = document.getElementById('iptValorTotal').value.replace(/[^\d.]+/g, '');
     let vl_pago = document.getElementById('iptValorPago').value.replace(/[^\d.]+/g, '');
     let troco = document.getElementById('iptTroco').value.replace(/[^\d.]+/g, '');
-
-    console.log(valor)
-    console.log(vl_pago)
-    console.log(troco)
 
     if (valor == null) {
 

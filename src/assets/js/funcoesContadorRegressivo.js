@@ -62,7 +62,6 @@ function iniciarContagemRegressiva(tempo, elementoTempo, baia, os, nome, telefon
               .then(response => response.json())
               .then(async response => {
 
-                console.log(response)
                 if (response.success == true) {
 
                   iniciarContagemRegressiva(tempo, elementoTempo, baia, os, nome, telefone);

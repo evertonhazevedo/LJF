@@ -16,7 +16,7 @@ function somarTotalTempoValorGerenciarOS(checkbox, valor, tempo) {
       valorTotal = valorCampoValorTotal;
 
 
-      if (valorCampoPrevisaoTotal[1] == 'Horas' || (valorCampoPrevisaoTotal[1] == 'Hora' && valorCampoPrevisaoTotal.length == 2)) {
+      if ((valorCampoPrevisaoTotal[1] == 'Horas' && valorCampoPrevisaoTotal.length == 2) || (valorCampoPrevisaoTotal[1] == 'Hora' && valorCampoPrevisaoTotal.length == 2)) {
 
         tempoTotal = parseInt(valorCampoPrevisaoTotal[0]) * 3600
 
@@ -26,7 +26,7 @@ function somarTotalTempoValorGerenciarOS(checkbox, valor, tempo) {
 
       } else if (valorCampoPrevisaoTotal[2] == 'e') {
 
-        tempoTotal = parseInt(valorCampoPrevisaoTotal[0]) * 3600 + (parseInt(valorCampoPrevisaoTotal[4]) * 60)
+        tempoTotal = parseInt(valorCampoPrevisaoTotal[0]) * 3600 + (parseInt(valorCampoPrevisaoTotal[3]) * 60)
 
       }
 
@@ -79,8 +79,7 @@ function somarTotalTempoValorGerenciarOS(checkbox, valor, tempo) {
 
       valorTotal = valorCampoValorTotal;
 
-
-      if (valorCampoPrevisaoTotal[1] == 'Horas' || (valorCampoPrevisaoTotal[1] == 'Hora' && valorCampoPrevisaoTotal.length == 2)) {
+      if ((valorCampoPrevisaoTotal[1] == 'Horas' && valorCampoPrevisaoTotal.length == 2) || (valorCampoPrevisaoTotal[1] == 'Hora' && valorCampoPrevisaoTotal.length == 2)) {
 
         tempoTotal = parseInt(valorCampoPrevisaoTotal[0]) * 3600
 
@@ -90,7 +89,7 @@ function somarTotalTempoValorGerenciarOS(checkbox, valor, tempo) {
 
       } else if (valorCampoPrevisaoTotal[2] == 'e') {
 
-        tempoTotal = parseInt(valorCampoPrevisaoTotal[0]) * 3600 + (parseInt(valorCampoPrevisaoTotal[4]) * 60)
+        tempoTotal = parseInt(valorCampoPrevisaoTotal[0]) * 3600 + (parseInt(valorCampoPrevisaoTotal[3]) * 60)
 
       }
 

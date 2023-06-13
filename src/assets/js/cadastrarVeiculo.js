@@ -8,7 +8,6 @@ async function cadastrarVeiculo() {
 
     
     let nome = document.getElementById('iptNomeCli').value;
-    console.log('nome: ' + nome)
 
     if (validarCampos('inputsVeiculo')) {
 
