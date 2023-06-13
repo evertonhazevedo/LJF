@@ -13,6 +13,8 @@ const models = require('./src/models/models');
 
 const rotas = require('./src/routes/routes');
 
+var port = process.env.PORT || 5500;
+
 //Configurações
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,4 +35,4 @@ app.use(rotas);
 
 app.use(express.json());
 
-app.listen(process.env.port || 5500);
+app.listen(port, "0.0.0.0");
