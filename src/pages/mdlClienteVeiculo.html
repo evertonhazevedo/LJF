@@ -42,7 +42,7 @@
           </div>
     
           <div class="col-lg-2">
-            <label for="iptPlacaCli" class="form-label">Tipo</label>
+            <label for="iptTipo" class="form-label">Tipo</label>
             <select type="tel" class="form-select inputsVeiculo" id="iptTipo" disabled>
               <option value="CARRO">Carro</option>
               <option value="MOTO">Moto</option>
@@ -81,7 +81,7 @@
       </div>
       <div class="modal-footer justify-content-start">
         <button type="button" class="btn btn-primary" id="btnSalvarCliVei" onclick="cadastrarCliente()">Salvar</button>
-        <button type="button" class="btn btn-danger" id="btnExcluirCli" onclick="deletarCliente()">Excluir</button>
+        <button type="button" class="btn btn-danger" id="btnExcluirCli" onclick="deletarCliente()" disabled>Excluir</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>

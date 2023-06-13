@@ -7,7 +7,8 @@ async function buscarTodasOS(req, res){
     `SELECT os.*, vei.*, cli.*, os.previsao as tempo, IF(os.status = 0, "Aberta", "Finalizada") as situacao, pag.* from ordemServico os
      LEFT JOIN cliente cli ON os.cd_cliente = cli.cd_cliente
      LEFT JOIN veiculo vei ON os.cd_veiculo = vei.cd_veiculo
-     LEFT JOIN pagamento pag ON os.cd_pagamento = pag.cd_pagamento`
+     LEFT JOIN pagamento pag ON os.cd_pagamento = pag.cd_pagamento
+     ORDER BY os.cd_ordem_servico DESC`
   )
 
 

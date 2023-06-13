@@ -44,9 +44,10 @@ document.getElementById('btnFinalizar')
     let valor = document.getElementById('iptValorTotal').value.replace(/[^\d.]+/g, '');
     let vl_pago = document.getElementById('iptValorPago').value.replace(/[^\d.]+/g, '');
     let troco = document.getElementById('iptTroco').value.replace(/[^\d.]+/g, '');
+    let vl_pago_input = document.getElementById('iptValorPago');
 
-    if (valor == null) {
-
+    if (vl_pago == "") {
+      vl_pago_input .classList.add('is-invalid');
       await Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -81,7 +82,8 @@ document.getElementById('btnFinalizar')
             document.getElementById('iptValorPago').setAttribute('disabled', ' ');
             document.getElementById('btnFinalizar').setAttribute('disabled', ' ');
             document.getElementById('btnFinalizar').innerHTML = 'PAGA';
-
+            vl_pago_input .classList.remove('is-invalid');
+            window.location.reload(true);
           }
 
         })

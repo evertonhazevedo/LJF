@@ -114,7 +114,7 @@ menu.innerHTML = `<div class="container-fluid">
         </li>
         <!-- Item do menu-->
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="" data-bs-toggle="modal" data-bs-target="#mdlClienteVeiculo">
+            <a id="btnClienteVeiculo" class="nav-link active" aria-current="page" href="" data-bs-toggle="modal" data-bs-target="#mdlClienteVeiculo">
                 <div>
                     <img src="../assets/icon/cad_cliente_icon.svg" alt="Cad. Cliente">
                 </div>

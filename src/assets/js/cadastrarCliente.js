@@ -52,7 +52,11 @@ async function cadastrarCliente() {
 
         if (response.success == true) {
 
+
           localStorage.setItem('idClienteCadastrado', response.cliente.cd_cliente)
+
+          // Habilitando o botão Excluir
+          document.getElementById('btnExcluirCli').removeAttribute("disabled");
 
           let inputs = document.getElementsByClassName("inputsVeiculo");
 
@@ -73,9 +77,9 @@ async function cadastrarCliente() {
           } else {
 
             await Swal.fire({
-              icon: 'success',
+              icon: 'warning',
               title: 'Cliente cadastrado com sucesso',
-              text: 'Cadastre pelo menos um veículo'
+              text: 'Lembre-se, um veículo deve ser cadastrado!'
             })
 
           }

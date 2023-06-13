@@ -20,36 +20,39 @@ document.getElementById('btnDeslogar')
             }
         }
 
-        const options = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                ordemServico,
-                novaPrevisao
-            })
-        };
+        if (ordemServico != "") {
 
-        fetch(baseUrl + '/salvar-nova-previsao', options)
-            .then(response => response.json())
-            .then(async response => {
-
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    timerProgressBar: true
+            const options = {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ordemServico,
+                    novaPrevisao
                 })
+            };
 
-                await Toast.fire({
-                    icon: 'warning',
-                    title: 'Encerrando sessão...'
+            fetch(baseUrl + '/salvar-nova-previsao', options)
+                .then(response => response.json())
+                .then(async response => {
+
                 })
+                .catch(err => console.error(err));
+        }
 
-                localStorage.clear();
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
+        })
 
-                window.location.href = "/index.html";
-            })
-            .catch(err => console.error(err));
+        await Toast.fire({
+            icon: 'warning',
+            title: 'Encerrando sessão...'
+        })
 
+        localStorage.clear();
+
+        window.location.href = "/index.html";
     });

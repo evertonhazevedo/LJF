@@ -89,6 +89,10 @@ function buscarClienteCadastrado(evento, valorMascara) {
         if (response.success == true) {
 
           preencherDadosCliente(response.cliente);
+          
+          // Habilitando o botão Excluir
+          document.getElementById('btnExcluirCli').removeAttribute("disabled");
+
 
           let inputs = document.getElementsByClassName("inputsVeiculo");
 

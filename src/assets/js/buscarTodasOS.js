@@ -176,6 +176,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function setarValorTotal(valorTotal, ordemServico, vl_pago, troco) {
+  let vl_pago_input = document.getElementById('iptValorPago');
+  vl_pago_input .classList.remove('is-invalid');
 
   if (vl_pago == 'null') {
 

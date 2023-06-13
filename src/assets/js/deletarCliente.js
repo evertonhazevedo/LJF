@@ -13,7 +13,10 @@ async function deletarCliente() {
 
       if (await result.isConfirmed) {
 
-        let cpf = document.getElementById('iptCpfCli').value;
+        let cpfCompleto = document.getElementById('iptCpfCli').value;
+        let cpfSemPonto = cpfCompleto.replace('.', '');
+        let cnpfSemPonto1 = cpfSemPonto.replace('.', '');
+        let cpf = cnpfSemPonto1.replace('-', '');
 
         const options = {
           method: 'DELETE',
